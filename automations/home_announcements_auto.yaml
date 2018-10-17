@@ -19,11 +19,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id: media_player.living_room_home_google_cast
-      volume_level: 0.7
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: media_player.bedroom_home_google_cast
-      volume_level: 0.7
+      volume_level: 0.5
   - data_template:
       message: "Hey big guy. Sun's getting real low. Minimum temperature tonight is {{states('sensor.dark_sky_overnight_low_temperature')}}."
     service: tts.google_say

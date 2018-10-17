@@ -21,10 +21,6 @@ views:
         show_header_toggle: false
         entities:
           - light.home_lights
-          - scene.guest_toilet_occupied
-          - scene.guest_toilet_not_occupied
-          - scene.guest_bathroom_occupied
-          - scene.guest_bathroom_not_occupied
       - type: entities
         title: Weather Today
         show_header_toggle: false
