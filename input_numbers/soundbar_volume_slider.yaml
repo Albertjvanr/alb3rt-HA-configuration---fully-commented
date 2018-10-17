@@ -1,0 +1,17 @@
+###########################################|###########################################
+#                                                                                     #
+#                               SOUNDBAR VOLUME SLIDER                                #
+#                                                                                     #
+#                       Input slider to set the soundbar volume                       #
+#                                                                                     #
+###########################################|###########################################
+
+soundbar_volume:
+  name: Soundbar Volume
+  initial: 20
+  min: 0
+  max: 100
+  step: 1
+  mode: slider
+  unit_of_measurement: "%"
+  icon: mdi:speaker

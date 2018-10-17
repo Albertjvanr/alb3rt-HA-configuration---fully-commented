@@ -1,0 +1,18 @@
+###########################################|###########################################
+#                                                                                     #
+#                                   DINING ROOM SCENE                                 #
+#                                                                                     #
+#        Input select which triggers automation to set dining room light scene        #
+#                                                                                     #
+###########################################|###########################################
+
+dining_room_scene:
+  name: Light Scene
+  options:
+    - Spring blossom
+    - Read
+    - Energize
+    - Nebula
+    - Arctic aurora
+  initial: Spring blossom
+  icon: mdi:palette

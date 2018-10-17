@@ -1,0 +1,14 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 INSIDE GARAGE LIGHT                                 #
+#                                                                                     #
+#            Binary sensor to show if the light inside the garage is ON               #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    inside_garage_light:
+      friendly_name: "Inside Garage Light"
+      device_class: power
+      value_template: "{{ is_state('switch.garage_inside_light_switch', 'on') }}"

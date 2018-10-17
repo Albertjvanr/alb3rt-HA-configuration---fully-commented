@@ -1,0 +1,271 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  SONOFF MQTT SENSORS                                #
+#                                                                                     #
+#   Mqtt sensors for all the Sonoff POW switches for logged Energy and current Power  #
+#                                                                                     #
+###########################################|###########################################
+
+# Sonoff POW for TV, CCTV Screen, Router, Soundbar, Xbox, IP Camera, Living Room Apple TV, Nixie Clock
+- platform: mqtt
+  name: "Router Energy"
+  state_topic: "tele/Sonoff-Router/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Router Power"
+  state_topic: "tele/Sonoff-Router/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Stove
+- platform: mqtt
+  name: "Stove Energy"
+  state_topic: "tele/Sonoff-Stove/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Stove Power"
+  state_topic: "tele/Sonoff-Stove/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Borehole
+- platform: mqtt
+  name: "Borehole Energy"
+  state_topic: "tele/Sonoff-BoreHole/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Borehole Power"
+  state_topic: "tele/Sonoff-BoreHole/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Pool Pump
+- platform: mqtt
+  name: "Pool Pump Energy"
+  state_topic: "tele/Sonoff-PoolPump/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Pool Pump Power"
+  state_topic: "tele/Sonoff-PoolPump/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for NUC
+- platform: mqtt
+  name: "NUC Energy"
+  state_topic: "tele/Sonoff-NUC/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "NUC Power"
+  state_topic: "tele/Sonoff-NUC/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Main Geyser
+- platform: mqtt
+  name: "Main Geyser Energy"
+  state_topic: "tele/Sonoff-Geyser_Main/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Main Geyser Power"
+  state_topic: "tele/Sonoff-Geyser_Main/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Main Bedroom Air conditioner
+- platform: mqtt
+  name: "Aircon Energy"
+  state_topic: "tele/Sonoff-AC/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Aircon Power"
+  state_topic: "tele/Sonoff-AC/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Dishwasher
+- platform: mqtt
+  name: "Dishwasher Energy"
+  state_topic: "tele/Sonoff-Dishwasher/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Dishwasher Power"
+  state_topic: "tele/Sonoff-Dishwasher/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  
+# Sonoff POW for Tumble Dryer
+- platform: mqtt
+  name: "Tumble Dryer Energy"
+  state_topic: "tele/Sonoff-Tumble_Dryer/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Tumble Dryer Power"
+  state_topic: "tele/Sonoff-Tumble_Dryer/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Fridge
+- platform: mqtt
+  name: "Fridge Energy"
+  state_topic: "tele/Sonoff-Fridge/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Fridge Power"
+  state_topic: "tele/Sonoff-Fridge/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Freezer
+- platform: mqtt
+  name: "Freezer Energy"
+  state_topic: "tele/Sonoff-Freezer/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Freezer Power"
+  state_topic: "tele/Sonoff-Freezer/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Washing Machine
+- platform: mqtt
+  name: "Washing Machine Energy"
+  state_topic: "tele/Sonoff-Washing_Machine/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Washing Machine Power"
+  state_topic: "tele/Sonoff-Washing_Machine/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Backup Geyser
+- platform: mqtt
+  name: "Backup Geyser Energy"
+  state_topic: "tele/Sonoff-Geyser_Backup/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Backup Geyser Power"
+  state_topic: "tele/Sonoff-Geyser_Backup/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Cottage Geyser
+- platform: mqtt
+  name: "Cottage Geyser Energy"
+  state_topic: "tele/Sonoff-Geyser_Cottage/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Cottage Geyser Power"
+  state_topic: "tele/Sonoff-Geyser_Cottage/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Pool Light
+- platform: mqtt
+  name: "Pool Light Energy"
+  state_topic: "tele/Sonoff-Pool_Light/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: "Pool Light Power"
+  state_topic: "tele/Sonoff-Pool_Light/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+# Sonoff POW for Nursery POW
+- platform: mqtt
+  name: "Nursery POW Energy"
+  state_topic: "tele/Sonoff-Nursery_POW/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "Nursery POW Power"
+  state_topic: "tele/Sonoff-Nursery_POW/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true
+  
+# Sonoff POW for Back Light
+- platform: mqtt
+  name: "Back Light Energy"
+  state_topic: "tele/Sonoff-Back_Light/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "Back Light Power"
+  state_topic: "tele/Sonoff-Back_Light/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true
+  
+# Sonoff POW for Hue Bridge, Twinkle Lights, Hall Extender, Extractor Fan
+- platform: mqtt
+  name: "HueExt Energy"
+  state_topic: "tele/Sonoff-HueExt/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "HueExt Power"
+  state_topic: "tele/Sonoff-HueExt/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true
+  
+# Sonoff POW for Bedroom TV Area
+- platform: mqtt
+  name: "Bedroom TV Energy"
+  state_topic: "tele/Sonoff-BedroomTV/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "Bedroom TV Power"
+  state_topic: "tele/Sonoff-BedroomTV/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true
+  
+# Sonoff POW for Main Flood Light
+- platform: mqtt
+  name: "Main Flood Light Energy"
+  state_topic: "tele/Sonoff-FloodMain/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "Main Flood Light Power"
+  state_topic: "tele/Sonoff-FloodMain/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true
+  
+# Sonoff POW for Patio Flood Light
+- platform: mqtt
+  name: "Patio Flood Light Energy"
+  state_topic: "tele/Sonoff-FloodPatio/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  unit_of_measurement: "kWh"
+  retain: true
+- platform: mqtt
+  name: "Patio Flood Light Power"
+  state_topic: "tele/Sonoff-FloodPatio/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+  retain: true

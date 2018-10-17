@@ -1,0 +1,70 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 1644
+  unit_system: metric
+  time_zone: Africa/Johannesburg
+  customize: !include customize.yaml
+
+hue: !include_dir_merge_named hue/
+zone: !include_dir_merge_list zones/
+influxdb: !include_dir_merge_named influxdb/
+panel_iframe: !include_dir_merge_named panel_iframe/
+mqtt: !include_dir_merge_named mqtt/
+device_tracker: !include_dir_merge_list device_tracker/
+switch: !include_dir_merge_list switches/
+sensor: !include_dir_merge_list sensors/
+media_player: !include_dir_merge_list media_players/
+cloud: !include_dir_merge_named clouds/
+cover: !include_dir_merge_list covers/
+input_number: !include_dir_merge_named input_numbers/
+input_select: !include_dir_merge_named input_selects/
+input_boolean: !include_dir_merge_named input_booleans/
+binary_sensor: !include_dir_merge_list binary_sensors/
+homekit: !include_dir_merge_named homekit/
+tts: !include_dir_merge_list tts/
+scene: !include_dir_merge_list scenes/
+script: !include_dir_merge_named scripts/
+remote: !include_dir_merge_list remotes/
+automation: !include_dir_merge_list automations/
+light: !include_dir_merge_list lights/
+group: !include_dir_merge_named groups/
+
+recorder: !include_dir_merge_named recorder/
+  
+frontend:
+  javascript_version: latest
+
+config:
+
+upnp:
+  port_mapping: true
+  ports:
+    hass: 8123
+
+updater:
+  include_used_components: true
+
+discovery:
+  enable:
+    - homekit
+
+conversation:
+
+history:
+
+logbook:
+
+map:
+
+http:
+  api_password: !secret http_password  
+
+sun:
+
+no_ip:
+  domain: hassio.jvanr.com
+  username: !secret noip_username
+  password: !secret noip_password
+  timeout: 30

@@ -1,0 +1,63 @@
+###########################################|###########################################
+#                                                                                     #
+#                               ALBERT IPHONE CHARGING                                #
+#                                                                                     #
+#                  Sensor to show Albert's iPhone charging state                      #
+#                                                                                     #
+###########################################|#####################################################################################################################
+# NOTE: This is used to track the attribute state of the sensor, which does not show up on the history because only entities are recorded, not their attributes #
+#################################################################################################################################################################
+
+- platform: template
+  sensors:
+    charging_albert_iphone:
+      friendly_name: "Albert iPhone Charging Sensor"
+      value_template: "{{ states.device_tracker.albertiphone.attributes.battery_status }}"
+
+###########################################|###########################################
+#                                                                                     #
+#                               ALBERT IPHONE CHARGING                                #
+#                                                                                     #
+#                   Sensor to show Albert's iPhone battery state                      #
+#                                                                                     #
+###########################################|#############################################
+# NOTE: This is used to "round" the sensor attribute value for use in other automations #
+#########################################################################################
+      
+- platform: template
+  sensors:
+    battery_albert_iphone:
+      friendly_name: "Albert iPhone Battery Sensor"
+      value_template: "{{ states.device_tracker.albertiphone.attributes.battery | round(0) }}"      
+
+###########################################|###########################################
+#                                                                                     #
+#                               LEANNA IPHONE CHARGING                                #
+#                                                                                     #
+#                  Sensor to show Laanna's iPhone charging state                      #
+#                                                                                     #
+###########################################|#####################################################################################################################
+# NOTE: This is used to track the attribute state of the sensor, which does not show up on the history because only entities are recorded, not their attributes #
+#################################################################################################################################################################
+      
+- platform: template
+  sensors:
+    charging_leanna_iphone:
+      friendly_name: "Leanna iPhone Battery Sensor"
+      value_template: "{{ states.device_tracker.leannaiphone.attributes.battery_status }}"
+
+###########################################|###########################################
+#                                                                                     #
+#                               LEANNA IPHONE CHARGING                                #
+#                                                                                     #
+#                   Sensor to show Leanna's iPhone battery state                      #
+#                                                                                     #
+###########################################|#############################################
+# NOTE: This is used to "round" the sensor attribute value for use in other automations #
+#########################################################################################
+      
+- platform: template
+  sensors:
+    battery_leanna_iphone:
+      friendly_name: "Leanna iPhone Battery Sensor"
+      value_template: "{{ states.device_tracker.leannaiphone.attributes.battery | round(0)  }}"     

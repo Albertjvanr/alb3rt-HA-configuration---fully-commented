@@ -1,0 +1,91 @@
+###########################################|###########################################
+#                                                                                     #
+#                             POOL PUMP MORNING TIMER                                 #
+#                                                                                     #
+#                Turn pool pump sonoff switch on/off in the mornings                  #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1530653629697'
+  alias: Pool Pump On Morning
+  trigger:
+  - at: '05:00:00'
+    platform: time
+  action:
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_on
+
+- id: '1530724289387'
+  alias: Pool Pump Off Morning
+  trigger:
+  - at: '08:00:00'
+    platform: time
+  action:
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_off    
+###########################################|###########################################
+#                                                                                     #
+#                             POOL PUMP EVENING TIMER                                 #
+#                                                                                     #
+#                Turn pool pump sonoff switch on/off in the evenings                  #
+#                                                                                     #
+###########################################|###########################################  
+   
+- id: '1530653747579'
+  alias: Pool Pump On Evening
+  trigger:
+  - at: '15:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_on
+    
+- id: '1530724223210'
+  alias: Pool Pump Off Evening
+  trigger:
+  - at: '18:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                         POOL PUMP - CREEPY STUCK OFF/ON                             #
+#                                                                                     #
+#            Turn pool pump sonoff switch off/on in case creepy is stuck              #
+#                                                                                     #
+###########################################|####################################################################################################
+# NOTE: Because the "POOL PUMP EVENING TIMER" automation turns the pump OFF on the hour (ie 0 minutes), the  "POOL PUMP - CREEPY STUCK OFF/ON" #
+#       kept turning the pump ON again because 0 is divisible by the /minutes trigger. To avoid this a delay was added to the action to allow  #
+#       "POOL PUMP EVENING TIMER" to turn the pump OFF first and then run the condition again before running the action sequence               #
+################################################################################################################################################
+    
+- id: '1534628841279'
+  alias: Pool Pump Stuck Off_On
+  trigger:
+  - minutes: /15
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: switch.pool_pump_switch
+    state:  'on'
+  action:
+  - delay: 00:00:05
+  - condition: state
+    entity_id: switch.pool_pump_switch
+    state: 'on'
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_off
+  - delay: 00:00:10
+  - data:
+      entity_id: switch.pool_pump_switch
+    service: switch.turn_on

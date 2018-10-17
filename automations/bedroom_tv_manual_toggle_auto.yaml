@@ -1,0 +1,80 @@
+###########################################|###########################################
+#                                                                                     #
+#                           INDIRECT BEDROOM TV ON STATE                              #
+#                                                                                     #
+#              Toggle Bedroom TV boolean ON if TV turned ON manually                  #
+#                                                                                     #
+###########################################|#########################################################################################################
+# NOTE: The bedroom TV is not a smart TV, so to get the input_boolean to reflect if the TV is ON, it checks if something is playing on the Apple TV #
+#       or Plex client when the TV was turned ON manually with the IR remote, TV power button or Harmony Hub (via the Harmony Hub application)      #
+#####################################################################################################################################################
+
+- id: '1534514048761'
+  alias: Bedroom TV Boolean ON
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.bedroom_tv_boolean
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: media_player.bedroom_plex
+            state: 'playing'
+          - condition: state
+            entity_id: media_player.bedroom_apple_tv
+            state: 'playing'
+  action:
+  - data:
+      entity_id: input_boolean.bedroom_tv_boolean
+    service: input_boolean.turn_on
+
+###########################################|###########################################
+#                                                                                     #
+#                           INDIRECT BEDROOM TV OFF STATE                             #
+#                                                                                     #
+#               Toggle Bedroom TV boolean OFF if TV turned OFF manually               #
+#                                                                                     #
+###########################################|#########################################################################################################
+# NOTE: The bedroom TV is not a smart TV, so to get the input_boolean to reflect if the TV is OFF, it checks if nothing is playing on the Apple TV  #
+#       or Plex Client when the TV was turned OFF manually with the IR remote, TV power button or Harmony Hub (via the Harmony Hub application)     #
+# NOTE: The Sonoff POW switch powering the TV also verifies that the TV is off when it uses less than 30 Watts, otherwise it can think the TV is    #
+#       OFF when playback is paused or idle but the TV is still ON                                                                                  #
+# NOTE: It also stops the Plex Client playback, otherwise the UI still shows that media is being played when TV is turned OFF manually              #
+#####################################################################################################################################################    
+    
+- id: '1535614123761'
+  alias: Bedroom TV Boolean OFF
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.bedroom_tv_boolean
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.bedroom_tv_power
+        below: '30'
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: "{% if not is_state('media_player.bedroom_plex', 'playing') %}true{% endif %}"         
+          - condition: template
+            value_template: "{% if not is_state('media_player.bedroom_apple_tv', 'playing') %}true{% endif %}"
+  action:
+  - data:
+      entity_id: input_boolean.bedroom_tv_boolean
+    service: input_boolean.turn_off
+  - data:
+      entity_id: media_player.bedroom_plex
+    service: media_player.turn_off
+    
+  

@@ -1,0 +1,45 @@
+###########################################|###########################################
+#                                                                                     #
+#                         UPDATE ALBERT IPHONE ICLOUD STATES                          #
+#                                                                                     #
+#             Update Albert iPhone states every 2 minutes after sunset                #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533168549312'
+  alias: Update Albert iCloud iPhones States
+  trigger:
+  - minutes: /2
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state: 'off'
+  action:
+  - data:
+      entity_id: script.update_albert_icloud_phone_attributes
+    service: script.toggle
+    
+###########################################|###########################################
+#                                                                                     #
+#                         UPDATE LEANNA IPHONE ICLOUD STATES                          #
+#                                                                                     #
+#             Update Leanna iPhone states every 2 minutes after sunset                #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1534391549332'
+  alias: Update Leanna iCloud iPhones States
+  trigger:
+  - minutes: /2
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state: 'off'
+  action:
+  - data:
+      entity_id: script.update_leanna_icloud_phone_attributes
+    service: script.toggle

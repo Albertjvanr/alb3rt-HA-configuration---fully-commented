@@ -1,0 +1,13 @@
+###########################################|###########################################
+#                                                                                     #
+#                                PLEX CURRENT ACTIVITY                                #
+#                                                                                     #
+#                 Sensor to show who is currently watching Plex                       #
+#                                                                                     #
+###########################################|############################################################################################################################################################################################
+# NOTE: You have to allow the IP address of your HA installation or the subnet to be able to connect without authentication. Can be set in Plex Server under network "List of IP addresses and networks that are allowed without auth" #
+########################################################################################################################################################################################################################################
+
+- platform: plex
+  name: Plex
+  host: 192.168.1.99

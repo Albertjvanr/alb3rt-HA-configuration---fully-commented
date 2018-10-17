@@ -1,0 +1,70 @@
+###########################################|###########################################
+#                                                                                     #
+#                               GARAGE DOOR OPEN SCRIPT                               #
+#                                                                                     #
+#                         Script to trigger the garage door relay                     #
+#                                                                                     #
+###########################################|#################################################################################################################################################
+# NOTE: The garage door open script only runs when the door is closed (ie "sensor.garage_door_closed" is ON), otherwise calling the open script when the door is open will close the door   #
+# NOTE: The delay is to trigger the relay and then release, like pressing and releasing the button on a remote                                                                              #
+#############################################################################################################################################################################################
+
+'garage_door_open_trigger':
+  alias: Garage Door Open Trigger
+  sequence:
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'ON'
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                              GARAGE DOOR CLOSE SCRIPT                               #
+#                                                                                     #
+#                         Script to trigger the garage door relay                     #
+#                                                                                     #
+###########################################|###################################################################################################################################################
+# NOTE: The garage door close script only runs when the door is open (ie "sensor.garage_door_closed" is OFF), otherwise calling the close script when the door is closed will open the door   #
+# NOTE: The delay is to trigger the relay and then release, like pressing and releasing the button on a remote                                                                                #
+###############################################################################################################################################################################################
+    
+'garage_door_close_trigger':
+  alias: Garage Door Close Trigger
+  sequence:
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'OFF'
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_off
+   
+###########################################|###########################################
+#                                                                                     #
+#                               GARAGE DOOR STOP SCRIPT                               #
+#                                                                                     #
+#                         Script to trigger the garage door relay                     #
+#                                                                                     #
+###########################################|####################################################################
+# NOTE: The delay is to trigger the relay and then release, like pressing and releasing the button on a remote #
+################################################################################################################
+   
+'garage_door_stop_trigger':
+  alias: Garage Door Stop Trigger
+  sequence:
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      entity_id: switch.garage_door_button
+    service: switch.turn_off

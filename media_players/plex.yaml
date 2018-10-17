@@ -1,0 +1,13 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 PLEX PLATFORM SETUP                                 #
+#                                                                                     #
+#                       Set Plex platform media players variables                     #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: plex
+  scan_interval: 15
+  show_all_controls: true
+  use_episode_art: false
+  remove_unavailable_clients: false

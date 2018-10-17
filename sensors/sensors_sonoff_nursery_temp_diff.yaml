@@ -1,0 +1,17 @@
+###########################################|###########################################
+#                                                                                     #
+#                          NURSERY TEMPERATURE FROM SETPOINT                          #
+#                                                                                     #
+#   Sensor to calculate the difference in the nursery temperature from the setpoint   #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    nursery_temp_minus_target:
+      value_template: "{{ ((states.sensor.nursery_temperature.state | float) - (states.input_number.target_nursery_temp.state | float)) | round(1) }}"
+      friendly_name: "Nursery Temp Diff"
+      unit_of_measurement: "°C"
+
+
+ 

@@ -1,0 +1,260 @@
+###########################################|###########################################
+#                                                                                     #
+#                                     XBOX TURN ON                                    #
+#                                                                                     #
+#                         Script used to turn the Xbox ON                             #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Used in automation to turn the Xbox ON if the TV was turned on manually #
+#################################################################################
+
+'turn_xbox_on':
+  alias: Turn On Xbox
+  sequence:
+    ## Xbox On ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerOn
+        device: 55587348
+
+###########################################|###########################################
+#                                                                                     #
+#                          LOUNGE ENTERTAINMENT SYSTEM TURN ON                        #
+#                                                                                     #
+# Script used to turn ON Xbox, turn ON TV, set TV to HDMI 3 and set Soundbar to HDMI  #
+#                                                                                     #
+###########################################|#####################################################################################################################################      
+# NOTE: When the Soundbar is ON and the TV turns ON, it will toggle (turn OFF) the Soundbar. To avoid this there is a delay after which the Soundbar is turned ON a second time #
+# NOTE: The second delay is for the same case as above, but when the power was OFF and the XBOX takes a while to restart, so then turning the Soundbar on again                 #
+# NOTE: Finally, the Soundbar does not have an ON/OFF switch, only toggle. But setting it to HDMI will turn it ON if it was OFF, thus the reason for setting to HDMI and not ON #                                                 #
+#################################################################################################################################################################################
+        
+'watch_lounge_tv_on':
+  alias: Turn On Xbox and TV and Soundbar
+  sequence:
+    ## Xbox On ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerOn
+        device: 55587348
+        delay_secs: 0.6
+    ## Samsung TV On ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerOn
+        device: 55587350
+        delay_secs: 0.6
+    ## Samsung TV HDMI 3 ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - InputHdmi3
+        device: 55587350
+        delay_secs: 10
+    ## Soundbar On and to HDMI3 - First Try for Soft Reboot ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - InputHdmiIn
+        device: 55587911
+        delay_secs: 5
+    ## Soundbar On and to HDMI3 - Second Try for Soft Reboot ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - InputHdmiIn
+        device: 55587911
+        delay_secs: 45
+    ## Soundbar On and to HDMI3 - Final Try for Hard Reboot ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - InputHdmiIn
+        device: 55587911
+        delay_secs: 1
+ 
+###########################################|###########################################
+#                                                                                     #
+#                          LOUNGE ENTERTAINMENT SYSTEM TURN OFF                       #
+#                                                                                     #
+#                   Script used to turn OFF Xbox and turn OFF TV                      #
+#                                                                                     #
+###########################################|################################################################################################################################################################################################################
+# NOTE: Stop the Xbox playback first (double "back" so that it returns to the main menu) otherwise the TV will turn OFF and after a while the Plex client will stop, and the HelloHue plug-in will then turn the lights ON again to the media_stop setting #
+############################################################################################################################################################################################################################################################  
+ 
+'watch_lounge_tv_off':
+  alias: Turn Off Xbox
+  sequence:
+    ## Stop Xbox Playback ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - Back
+        device: 55587348
+        delay_secs: 2
+    ## Stop Xbox Playback ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - Back
+        device: 55587348
+        delay_secs: 2
+    ## Xbox Off ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerOff
+        device: 55587348
+        delay_secs: 0.6
+    ## Turn Off TV Globes ##
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tv_globes_switch
+        delay_secs: 0.6
+    ## Samsung TV Off ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerOff
+        device: 55587350
+        delay_secs: 1
+
+###########################################|###########################################
+#                                                                                     #
+#                                 SOUNDBAR VOLUME UP                                  #
+#                                                                                     #
+#                     Script used to turn the Soundbar volume up                      #
+#                                                                                     #
+###########################################|###########################################        
+        
+'soundbar_volume_up':
+  alias: Soundbar Volume Up
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - VolumeUp
+        device: 55587911
+
+###########################################|###########################################
+#                                                                                     #
+#                                SOUNDBAR VOLUME DOWN                                 #
+#                                                                                     #
+#                   Script used to turn the Soundbar volume down                      #
+#                                                                                     #
+###########################################|###########################################            
+        
+'soundbar_volume_down':
+  alias: Soundbar Volume Down
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - VolumeDown
+        device: 55587911
+
+###########################################|###########################################
+#                                                                                     #
+#                                SOUNDBAR VOLUME MUTE                                 #
+#                                                                                     #
+#                          Script used to mute the Soundbar                           #
+#                                                                                     #
+###########################################|###########################################    
+        
+'soundbar_volume_mute':
+  alias: Soundbar Volume Mute
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - Mute
+        device: 55587911
+
+###########################################|###########################################
+#                                                                                     #
+#                               BEDROOM ON TV CONTROL                                 #
+#                                                                                     #
+#                        Script used to turn ON the bedroom TV                        #
+#                                                                                     #
+###########################################|#######################################################################################################################################################   
+# NOTE: Since this TV is not a smart TV, it turns ON the bedroom TV input boolean, then turns ON the bedroom TV and then the the "menu" button of the Apple TV so that it comes out of sleep mode #
+###################################################################################################################################################################################################
+        
+'watch_bedroom_tv_on':
+  alias: Bedroom TV On
+  sequence:
+    ## Turn on Bedroom TV input boolean ##
+    - data:
+        entity_id: input_boolean.bedroom_tv_boolean
+      service: input_boolean.turn_on
+    ## Bedroom TV On ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerToggle
+        device: 56915227
+        delay_secs: 0.6
+    ## Bedroom ATV On ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - Menu
+        device: 56948414
+     
+###########################################|###########################################
+#                                                                                     #
+#                               BEDROOM  OFF TV CONTROL                               #
+#                                                                                     #
+#                       Script used to turn OFF the bedroom TV                        #
+#                                                                                     #
+###########################################|################################################################################################################
+# NOTE: Since this TV is not a smart TV, it turns OFF the bedroom TV input boolean, then stops the playback on the Apple TV, then turns OFF the bedroom TV #
+############################################################################################################################################################
+     
+## Turn Off Bedroom TV ##
+'watch_bedroom_tv_off':
+  alias: Bedroom TV Off
+  sequence:  
+    ## Turn off Bedroom TV input boolean ##
+    - data:
+        entity_id: input_boolean.bedroom_tv_boolean
+      service: input_boolean.turn_off
+## Turn OFF Bedroom ATV ##
+    - data:
+        entity_id: media_player.bedroom_plex
+      service: media_player.media_stop
+    ## Stop ATV Playback ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - Menu
+        device: 56948414
+        delay_secs: 2
+    ## Bedroom TV Off ##
+    - service: remote.send_command
+      data:
+        entity_id: remote.harmony_hub
+        command:
+          - PowerToggle
+        device: 56915227

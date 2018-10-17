@@ -1,0 +1,27 @@
+###########################################|###########################################
+#                                                                                     #
+#                               IDAH HOME BAYESIAN SENSOR                             #
+#                                                                                     #
+#            Binary sensor to calculate whether the house help is home                #
+#                                                                                     #
+###########################################|#################################################
+# NOTE: Bayesian sensor calculating the probability that the help is at home based on       #
+#       1. That her phone is connected to either the main Wifi or Wifi extender in her room #
+#############################################################################################
+
+- platform: bayesian
+  name: Idah Home Bayesian
+  prior: 0.5
+  probability_threshold: 0.6
+  observations:
+    - entity_id: 'device_tracker.android1531351b37ac6f3a'
+      prob_given_true: 0.9
+      prob_given_false: 0.3
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.unknown_7'
+      prob_given_true: 0.9
+      prob_given_false: 0.3
+      platform: 'state'
+      to_state: 'home'      
+      

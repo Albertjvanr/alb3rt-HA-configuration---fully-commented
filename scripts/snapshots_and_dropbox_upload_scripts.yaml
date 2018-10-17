@@ -1,0 +1,70 @@
+###########################################|###########################################
+#                                                                                     #
+#                               DROPBOX CONFIG UPLOAD                                 #
+#                                                                                     #
+#                  Script to upload my HA configuration to Dropbox                    #
+#                                                                                     #
+###########################################|###########################################
+
+'dropbox_upload':
+  alias: Upload Snapshots to Dropbox
+  sequence:
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
+
+###########################################|###########################################
+#                                                                                     #
+#                                  FULL HA SNAPSHOT                                   #
+#                                                                                     #
+#                        Script to create a full HA snapshot                          #
+#                                                                                     #
+###########################################|###########################################
+    
+'create_full_snapshot':
+  alias: Create Full Snapshot
+  sequence:
+  - service: hassio.snapshot_full
+    data_template:
+      name: "Full Snapshot {{ now().strftime('%Y-%m-%d') }}"
+
+###########################################|###########################################
+#                                                                                     #
+#                                PARTIAL HA SNAPSHOT                                  #
+#                                                                                     #
+#                      Script to create a partial HA snapshot                         #
+#                                                                                     #
+###########################################|###########################################      
+      
+'create_partial_snapshot':
+  alias: Create Partial Snapshot
+  sequence:
+  - service: hassio.snapshot_partial
+    data_template:
+      name: "Partial Snapshot {{ now().strftime('%Y-%m-%d') }}"
+
+###########################################|###########################################
+#                                                                                     #
+#                            FULL HA SNAPSHOT AND DROPBOX UPLOAD                      #
+#                                                                                     #
+#        Script to create a full HA snapshot and upload the snapshot to Dropbox       #
+#                                                                                     #
+###########################################|#############################################
+# NOTE: Delay of 15 minutes to allow the snapshot to finish before uploading to Dropbox #
+#########################################################################################    
+'create_full_snapshot_and_dropbox_upload':
+  alias: Snapshot and Upload
+  sequence:
+  - service: hassio.snapshot_full
+    data_template:
+      name: "Full Snapshot {{ now().strftime('%Y-%m-%d') }}"
+  - delay:
+      minutes: 15
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
+    

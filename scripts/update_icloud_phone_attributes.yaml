@@ -1,0 +1,29 @@
+###########################################|###########################################
+#                                                                                     #
+#                                ALBERT IPHONE STATES                                 #
+#                                                                                     #
+#                    Trigger to update iPhone iCloud attributes                       #
+#                                                                                     #
+###########################################|###########################################
+
+'update_albert_icloud_phone_attributes':
+  alias: Update Albert iCloud Phone Attributes
+  sequence:
+  - data:
+      device_name: albertiphone
+    service: device_tracker.icloud_update
+
+###########################################|###########################################
+#                                                                                     #
+#                                LEANNA IPHONE STATES                                 #
+#                                                                                     #
+#                    Trigger to update iPhone iCloud attributes                       #
+#                                                                                     #
+###########################################|###########################################
+    
+'update_leanna_icloud_phone_attributes':
+  alias: Update Leanna iCloud Phone Attributes
+  sequence:
+  - data:
+      device_name: leannaiphone
+    service: device_tracker.icloud_update

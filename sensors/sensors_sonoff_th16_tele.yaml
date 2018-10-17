@@ -1,0 +1,55 @@
+###########################################|###########################################
+#                                                                                     #
+#                              NURSERY TEMPERATURE SENSOR                             #
+#                                                                                     #
+#                          Sensor to show nursery temperature                         #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: mqtt
+  name: "Nursery Temperature"
+  state_topic: "tele/Sonoff-Heat1/SENSOR"
+  value_template: '{{ value_json["SI7021"]["Temperature"] }}'
+  unit_of_measurement: "°C"
+
+###########################################|###########################################
+#                                                                                     #
+#                               NURSERY HUMIDITY SENSOR                               #
+#                                                                                     #
+#                           Sensor to show nursery humidity                           #
+#                                                                                     #
+###########################################|###########################################
+  
+- platform: mqtt
+  name: "Nursery Humidity"
+  state_topic: "tele/Sonoff-Heat1/SENSOR"
+  value_template: '{{ value_json["SI7021"]["Humidity"] }}'
+  unit_of_measurement: "%"
+
+###########################################|###########################################
+#                                                                                     #
+#                          MAIN BATHROOM TEMPERATURE SENSOR                           #
+#                                                                                     #
+#                       Sensor to show main bathroom temperature                      #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Bathroom Temperature"
+  state_topic: "tele/Sonoff-Extractor_Fan/SENSOR"
+  value_template: '{{ value_json["SI7021"]["Temperature"] }}'
+  unit_of_measurement: "°C"
+
+###########################################|###########################################
+#                                                                                     #
+#                            MAIN BATHROOM HUMIDITY SENSOR                            #
+#                                                                                     #
+#                         Sensor to show main bathroom humidity                       #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Bathroom Humidity"
+  state_topic: "tele/Sonoff-Extractor_Fan/SENSOR"
+  value_template: '{{ value_json["SI7021"]["Humidity"] }}'
+  unit_of_measurement: "%"

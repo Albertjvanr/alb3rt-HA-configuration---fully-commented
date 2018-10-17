@@ -1,0 +1,31 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  GARAGE DOOR COVER                                  #
+#                                                                                     #
+#       Cover to run OPEN and CLOSE script for garage door with state pictures        #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  covers:
+    garage_door:
+      friendly_name: "Garage Door"
+      value_template: "{{ is_state('sensor.garage_door_closed', 'OFF')}}"
+      open_cover:
+        service: script.turn_on
+        data:
+          entity_id: script.garage_door_open_trigger
+      close_cover:
+        service: script.turn_on
+        data:
+          entity_id: script.garage_door_close_trigger
+      stop_cover:
+        service: script.turn_on
+        data:
+          entity_id: script.garage_door_stop_trigger
+      entity_picture_template: >-
+        {% if is_state('sensor.garage_door_closed', 'ON') %}
+          /local/garage_closed.jpg
+        {% else %}
+          /local/garage_open.jpg
+        {% endif %}

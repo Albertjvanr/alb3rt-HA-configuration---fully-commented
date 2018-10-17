@@ -1,0 +1,26 @@
+###########################################|###########################################
+#                                                                                     #
+#                         MONITORED HOME KWH USAGE CALCULATIONS                       #
+#                                                                                     #
+#     Sensor to calculate how much of the energy usage in the house I'm measuring      #
+#                                                                                     #
+###########################################|##########################################################################################################################################################
+# NOTE: Energy consumption is done via multiple Sonoff POW switches                                                                                                                                  #
+# NOTE: kWh's on the pre-paid meter is manually inserted to "input_number.prepaid_power_meter_load", from where all the measured kWh's are subtracted to calculate how much energy I'm not measuring #
+# NOTE: kWh's are inserted when I load kWh and whenever I need to calculate I insert the current kWh left on the meter                                                                               #
+# NOTE: The second sensor calculates the % unaccounted kWh's                                                                                                                                                  #
+######################################################################################################################################################################################################
+
+- platform: template
+  sensors:
+    prepaid_unaccounted_kwh_usage:
+      value_template: "{{ ((states.input_number.prepaid_power_meter_load.state | float) - (states.input_number.prepaid_power_meter_current.state | float) - (states.sensor.total_energy_usage.state | float)) | round(1) }}"
+      friendly_name: "Prepaid Unaccounted kWh"
+      unit_of_measurement: "kWh"
+
+- platform: template
+  sensors:
+    prepaid_unaccounted_kwh_usage_percentage:
+      value_template: "{{ ((((states.input_number.prepaid_power_meter_load.state | float) - (states.input_number.prepaid_power_meter_current.state | float) - (states.sensor.total_energy_usage.state | float)) / ((states.input_number.prepaid_power_meter_load.state | float) - (states.input_number.prepaid_power_meter_current.state | float))) * 100) | round(0) }}"
+      friendly_name: "Prepaid Unaccounted Percentage"
+      unit_of_measurement: "%"

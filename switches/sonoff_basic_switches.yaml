@@ -1,0 +1,79 @@
+###########################################|###########################################
+#                                                                                     #
+#                              NURSERY FAIRY LIGHTS ON/OFF                            #
+#                                                                                     #
+#          Sonoff Basic switch mqtt to control the nursery fairy lights               #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: mqtt
+  name: "Nursery Fairy Lights Switch"
+  state_topic: "stat/Sonoff-Fairy/POWER"
+  command_topic: "cmnd/Sonoff-Fairy/POWER"
+  availability_topic: "tele/Sonoff-Fairy/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                               LOUNGE TV GLOBES ON/OFF                               #
+#                                                                                     #
+#             Sonoff Basic switch mqtt to control the lounge TV globes                #
+#                                                                                     #
+###########################################|###########################################
+  
+- platform: mqtt
+  name: "TV Globes Switch"
+  state_topic: "stat/Sonoff-TVGlobes/POWER"
+  command_topic: "cmnd/Sonoff-TVGlobes/POWER"
+  availability_topic: "tele/Sonoff-TVGlobes/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                             GARAGE INSIDE LIGHT ON/OFF                              #
+#                                                                                     #
+#           Sonoff Basic switch mqtt to control the garage inside light               #
+#                                                                                     #
+###########################################|###########################################
+  
+- platform: mqtt
+  name: "Garage Inside Light Switch"
+  state_topic: "stat/Sonoff-Garage_In_Light/POWER"
+  command_topic: "cmnd/Sonoff-Garage_In_Light/POWER"
+  availability_topic: "tele/Sonoff-Garage_In_Light/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                            GARAGE OUTSIDE LIGHT ON/OFF                              #
+#                                                                                     #
+#          Sonoff Basic switch mqtt to control the garage outside lights              #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Garage Outside Lights Switch"
+  state_topic: "stat/Sonoff-Garage_Out_Lights/POWER"
+  command_topic: "cmnd/Sonoff-Garage_Out_Lights/POWER"
+  availability_topic: "tele/Sonoff-Garage_Out_Lights/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true

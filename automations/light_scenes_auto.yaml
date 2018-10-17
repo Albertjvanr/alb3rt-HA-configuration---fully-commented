@@ -1,0 +1,18 @@
+###########################################|###########################################
+#                                                                                     #
+#                              DINING ROOM LIGHT SCENE                                #
+#                                                                                     #
+#                 Set dining room light scene based on input select                   #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1534332048722'
+  alias: Dining Room Scene Select
+  trigger:
+    platform: state
+    entity_id: input_select.dining_room_scene
+  action:
+    - service: hue.hue_activate_scene
+      data_template:
+        group_name: "Dining Room"
+        scene_name: '{{ states.input_select.dining_room_scene.state }}'

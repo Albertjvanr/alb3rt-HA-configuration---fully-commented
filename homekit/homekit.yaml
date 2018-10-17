@@ -1,0 +1,70 @@
+###########################################|###########################################
+#                                                                                     #
+#                           ICLOUD/HOMEKIT SETUP AND FILTER                           #
+#                                                                                     #
+#           Load component and filter entities for Siri controled devices             #
+#                                                                                     #
+###########################################|###########################################
+
+auto_start: false
+
+filter:
+  include_entities:
+  
+    - switch.xbox
+    - switch.tv_globes_switch
+    - light.lounge
+    - light.dining_room
+    - light.nursery
+    - light.living_room_lights
+    - light.home_lights
+    - light.bedroom
+    - cover.garage_door
+    - switch.pool_pump_switch
+    - switch.nursery_fairy_lights_switch
+    
+###########################################|###########################################
+#                                                                                     #
+#                                ICLOUD/HOMEKIT CONFIG                                #
+#                                                                                     #
+#               Configure Homekit allowed entities by creating aliases                #
+#                                                                                     #
+###########################################|###########################################
+
+entity_config:
+
+  switch.xbox:
+    name: Xbox
+    type: switch
+    
+  switch.tv_globes_switch:
+    name: TV Globes
+    type: outlet
+    
+  light.lounge:
+    name: Lounge Lights
+    
+  light.dining_room:
+    name: Dining Room Lights
+    
+  light.nursery:
+    name: Nursery Lights    
+   
+  light.living_room_lights:
+    name: Living Room Lights   
+   
+  light.home_lights:
+    name: Home Lights     
+   
+  light.bedroom:
+    name: Bedroom Lights
+    
+  cover.garage_door:
+    name: Garage Door
+    
+  switch.pool_pump_switch:
+    name: Pool Pump
+    type: switch
+    
+  switch.nursery_fairy_lights_switch:
+    name: Fairy Lights

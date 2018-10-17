@@ -1,0 +1,27 @@
+###########################################|###########################################
+#                                                                                     #
+#                   ALBERT ICLOUD DEVICE STATE AND ATTRIBUTE COMPONENT                #
+#                                                                                     #
+#                     Setup of iCloud state and attribute component                   #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: icloud
+  username: !secret albert_icloud_username
+  password: !secret albert_icloud_password
+  account_name: !secret albert_icloud_account_name
+  max_interval: 15
+  
+###########################################|###########################################
+#                                                                                     #
+#                   LEANNA ICLOUD DEVICE STATE AND ATTRIBUTE COMPONENT                #
+#                                                                                     #
+#                     Setup of iCloud state and attribute component                   #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: icloud
+  username: !secret leanna_icloud_username
+  password: !secret leanna_icloud_password
+  account_name: !secret leanna_icloud_account_name
+  max_interval: 15 

@@ -1,0 +1,22 @@
+###########################################|###########################################
+#                                                                                     #
+#                          MAIN GEYSER SONOFF POW BYPASS SWITCH                       #
+#                                                                                     #
+#                    Bypass switch if Main Geyser Sonoff POW fails                    #
+#                                                                                     #
+###########################################|##################################################################################
+# NOTE: I used a Sonoff wall light touch switch, connected to a relay, which can bypass the Sonoff POW if it happens to fail #
+# NOTE: This was installed because the wife will not get into the roof to fix the switch, wife-acceptance-factor             #
+##############################################################################################################################
+
+- platform: mqtt
+  name: "Geyser Bypass Switch"
+  state_topic: "stat/Sonoff-GeyserBypass/POWER"
+  command_topic: "cmnd/Sonoff-GeyserBypass/POWER"
+  availability_topic: "tele/Sonoff-GeyserBypass/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true

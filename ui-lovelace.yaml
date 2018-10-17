@@ -1,0 +1,398 @@
+title: Home
+views:
+  - title: Home
+    icon: mdi:home
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.google_maps_104009438971040744408
+          - device_tracker.google_maps_107098793514996861397
+          - sensor.current_power_usage
+          - sensor.total_energy_usage
+          - sensor.idah_home
+      - type: entities
+        title: Garage Door
+        show_header_toggle: false
+        entities:
+          - cover.garage_door
+          - switch.garage_inside_light_switch
+      - type: entities
+        title: Home Lights
+        show_header_toggle: false
+        entities:
+          - light.home_lights
+          - scene.guest_toilet_occupied
+          - scene.guest_toilet_not_occupied
+          - scene.guest_bathroom_occupied
+          - scene.guest_bathroom_not_occupied
+      - type: entities
+        title: Weather Today
+        show_header_toggle: false
+        entities:
+          - sun.sun
+          - sensor.dark_sky_daily_summary
+          - sensor.dark_sky_temperature
+          - sensor.dark_sky_wind_speed
+          - sensor.dark_sky_precip_probability
+          - sensor.dark_sky_wind_bearing
+          - sensor.season
+          - sensor.moon
+      - type: entities
+        title: Weather Forecast
+        show_header_toggle: false
+        entities:
+          - sensor.dark_sky_overnight_low_temperature_1
+          - sensor.dark_sky_daytime_high_temperature_1
+      - type: entities
+        title: Guests Visiting
+        show_header_toggle: false
+        entities:
+          - input_boolean.backup_geyser_boolean
+          - input_boolean.cottage_geyser_boolean
+          - input_boolean.home_sleep_mode_boolean
+      - type: entities
+        title: HASSIO Commands
+        show_header_toggle: false
+        entities:
+          - script.hassio_restart
+  - title: Lounge
+    icon: mdi:sofa
+    cards:
+      - type: entities
+        title: Lounge Lights
+        show_header_toggle: true
+        entities:
+          - light.lounge
+          - switch.tv_globes_switch
+      - type: entities
+        title: Xbox
+        show_header_toggle: false
+        entities:
+          - switch.xbox
+          - cover.soundbar_volume
+          - input_number.xbox_volume
+          - input_number.soundbar_volume
+### Check if this works ###
+      - type: entity-filter
+        entities:
+          - media_player.xboxone_plex
+        state_filter:
+          - playing
+          - idle
+      - type: media-control
+        entity: media_player.living_room_home_google_cast
+  - title: Bedroom
+    icon: mdi:hotel
+    cards:
+      - type: entities
+        title: Bedroom Lights
+        show_header_toggle: false
+        entities:
+          - light.bedroom
+      - type: entities
+        title: Bedroom TV
+        show_header_toggle: false
+        entities:
+          - switch.bedroom_tv_power
+### Check if this works ###
+      - type: entity-filter
+        entities:
+          - media_player.bedroom_plex
+        state_filter:
+          - playing
+          - idle
+      - type: media-control
+        entity: media_player.bedroom_home_google_cast
+      - type: entities
+        title: Bathroom Atmosphere
+        show_header_toggle: true
+        entities:
+          - sensor.bathroom_temperature
+          - sensor.bathroom_humidity
+          - binary_sensor.bathroom_extractor
+  - title: Nursery
+    icon: mdi:baby-buggy
+    cards:
+      - type: entities
+        title: Nursery Lights
+        show_header_toggle: false
+        entities:
+          - light.chloe
+          - switch.nursery_fairy_lights_switch
+      - type: entities
+        title: Nursery Atmosphere
+        show_header_toggle: true
+        entities:
+          - sensor.nursery_temperature
+          - sensor.nursery_humidity
+      - type: entities
+        title: Nursery Target Temperature
+        show_header_toggle: true
+        entities:
+          - input_number.target_nursery_temp
+          - sensor.nursery_temp_minus_target
+          - binary_sensor.nursery_heater
+  - title: Dining Room and Kitchen
+    icon: mdi:silverware
+    cards:
+      - type: entities
+        title: Dining Room Lights
+        show_header_toggle: false
+        entities:
+          - light.dining_room
+          - input_select.dining_room_scene
+      - type: entities
+        title: Kitchen Lights
+        show_header_toggle: false
+        entities:
+          - light.kitchen
+  - title: Garden & Pool
+    icon: mdi:pool
+    cards:
+      - type: entities
+        title: Garden & Pool Switches
+        show_header_toggle: false
+        entities:
+          - switch.pool_pump_switch
+      - type: entities
+        title: Day Night Lights
+        show_header_toggle: true
+        entities:
+          - binary_sensor.pool_light
+          - binary_sensor.back_light
+          - binary_sensor.outside_garage_lights
+          - binary_sensor.main_flood_light
+          - binary_sensor.patio_flood_light
+  - title: Network
+    icon: mdi:lan-connect
+    cards:
+      - type: entities
+        title: Speed Test
+        show_header_toggle: true
+        entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.speedtest_ping
+          - sensor.router_traffic_received
+          - sensor.router_traffic_sent
+          - sensor.router_download_traffic
+          - sensor.router_upload_traffic
+      - type: entities
+        title: Plex Sever Streaming
+        show_header_toggle: true
+        entities:
+          - sensor.plex
+          - sensor.radarr_movies
+          - sensor.radarr_upcoming
+          - sensor.sonarr_series
+          - sensor.sonarr_upcoming
+      - type: entities
+        title: Uptime Robot
+        show_header_toggle: false
+        entities:
+          - binary_sensor.21_main_router
+          - binary_sensor.hassio
+          - binary_sensor.huepower
+          - binary_sensor.kguard
+          - binary_sensor.plex_server
+      - type: entities
+        title: Raspberry Pi Usage
+        show_header_toggle: true
+        entities:
+          - sensor.disk_use_percent_
+          - sensor.memory_use_percent
+          - sensor.network_in_eth0
+          - sensor.network_out_eth0
+          - sensor.ipv4_address_eth0
+          - sensor.processor_use
+          - sensor.since_last_boot
+          - sensor.last_boot
+      - type: entities
+        title: Snapshot Dropbox Upload
+        show_header_toggle: false
+        entities:
+          - script.create_full_snapshot_and_dropbox_upload
+          - script.dropbox_upload
+          - script.create_full_snapshot
+          - script.create_partial_snapshot
+  - title: Monitors
+    icon: mdi:power-plug
+    cards:
+      - type: entities
+        title: Total & Current Usage
+        show_header_toggle: true
+        entities:
+          - sensor.total_energy_usage
+          - sensor.current_power_usage
+          - group.all_automations
+      - type: entities
+        title: Prepaid Monitoring
+        show_header_toggle: false
+        entities:                 
+          - input_number.prepaid_power_meter_load
+          - input_number.prepaid_power_meter_current
+          - sensor.prepaid_unaccounted_kwh_usage
+          - sensor.prepaid_unaccounted_kwh_usage_percentage
+      - type: entities
+        title: Sonoff Reset Sequence
+        show_header_toggle: false
+        entities:
+          - script.sonoff_pow_kwh_reset
+      - type: entities
+        title: Sonoff Switches Always On
+        show_header_toggle: true
+        entities:
+          - switch.borehole_switch
+          - switch.aircon_switch
+          - switch.router_switch
+          - switch.main_geyser_switch
+          - switch.nuc_switch
+          - switch.stove_switch
+          - switch.dishwasher_switch
+          - switch.tumble_dryer_switch
+          - switch.fridge_switch
+          - switch.freezer_switch
+          - switch.washing_machine_switch
+          - switch.nursery_pow_switch
+          - switch.hueext_switch
+          - switch.bedroom_tv_switch
+      - type: entities
+        title: Sonoff Switches Bypass
+        show_header_toggle: false
+        entities:
+          - switch.geyser_bypass_switch
+      - type: entities
+        title: Sonoff Switches Automated
+        show_header_toggle: false
+        entities:
+          - switch.garage_door_button
+          - switch.tv_globes_switch
+          - switch.nursery_heater_switch
+          - switch.bathroom_extractor_switch
+          - switch.pool_light_switch
+          - switch.pool_pump_switch
+          - switch.back_light_switch
+          - switch.backup_geyser_switch
+          - switch.cottage_geyser_switch
+          - switch.garage_inside_light_switch
+          - switch.garage_outside_lights_switch
+          - switch.main_flood_light_switch
+          - switch.patio_flood_light_switch
+      - type: entities
+        title: Sonoff kWh
+        show_header_toggle: true
+        entities:
+          - sensor.router_energy
+          - sensor.stove_energy
+          - sensor.borehole_energy
+          - sensor.pool_pump_energy
+          - sensor.nuc_energy
+          - sensor.main_geyser_energy
+          - sensor.aircon_energy
+          - sensor.dishwasher_energy
+          - sensor.tumble_dryer_energy
+          - sensor.fridge_energy
+          - sensor.freezer_energy
+          - sensor.washing_machine_energy
+          - sensor.backup_geyser_energy
+          - sensor.cottage_geyser_energy
+          - sensor.pool_light_energy
+          - sensor.nursery_pow_energy
+          - sensor.back_light_energy
+          - sensor.hueext_energy
+          - sensor.bedroom_tv_energy
+          - sensor.main_flood_light_energy
+          - sensor.patio_flood_light_energy
+      - type: entities
+        title: Sonoff Watt
+        show_header_toggle: true
+        entities:
+          - sensor.borehole_power
+          - sensor.aircon_power
+          - sensor.pool_pump_power
+          - sensor.router_power
+          - sensor.main_geyser_power
+          - sensor.nuc_power
+          - sensor.stove_power
+          - sensor.dishwasher_power
+          - sensor.tumble_dryer_power
+          - sensor.fridge_power
+          - sensor.freezer_power
+          - sensor.washing_machine_power
+          - sensor.nursery_pow_power
+          - sensor.backup_geyser_power
+          - sensor.cottage_geyser_power
+          - sensor.pool_light_power
+          - sensor.back_light_power
+          - sensor.hueext_power
+          - sensor.bedroom_tv_power
+          - sensor.main_flood_light_power
+          - sensor.patio_flood_light_power
+  - title: Motion Areas
+    icon: mdi:looks
+    cards:
+      - type: entities
+        title: Motion Areas Lights
+        show_header_toggle: true
+        entities:
+          - light.kitchen
+          - light.face_on
+          - light.main_bathroom
+          - light.hall
+          - light.guest_toilet
+          - light.guest_bathroom
+      - type: entities
+        title: Motion Areas Hue Lux
+        show_header_toggle: true
+        entities:
+          - sensor.face_on_motion_sensor_lux
+          - sensor.guest_bathroom_motion_sensor_lux
+          - sensor.guest_toilet_motion_sensor_lux
+          - sensor.hall_motion_sensor_lux
+          - sensor.kitchen_motion_sensor_lux
+          - sensor.main_bathroom_motion_sensor_lux
+      - type: entities
+        title: Motion Areas Hue Temperature
+        show_header_toggle: true
+        entities:
+          - sensor.face_on_motion_sensor_temperature
+          - sensor.guest_bathroom_motion_sensor_temperature
+          - sensor.guest_toilet_motion_sensor_temperature
+          - sensor.hall_motion_sensor_temperature
+          - sensor.kitchen_motion_sensor_temperature
+          - sensor.main_bathroom_motion_sensor_temperature
+      - type: entities
+        title: Motion Areas Hue Motion
+        show_header_toggle: true
+        entities:
+          - sensor.face_on_motion_sensor
+          - sensor.guest_bathroom_motion_sensor
+          - sensor.guest_toilet_motion_sensor
+          - sensor.hall_motion_sensor
+          - sensor.kitchen_motion_sensor
+          - sensor.main_bathroom_motion_sensor
+  - title: Testing
+    icon: mdi:golf
+    cards:
+      - type: entities
+        title: In Bed
+        show_header_toggle: false
+        entities:
+          - input_boolean.sun_position_boolean
+          - binary_sensor.charging_albert_iphone
+          - binary_sensor.charging_leanna_iphone
+          - binary_sensor.xbox_plex_playing
+          - binary_sensor.in_bed_bayesian
+          - sensor.both_in_bed
+      - type: entities
+        title: iPhones Charging
+        show_header_toggle: true
+        entities:
+          - binary_sensor.charging_albert_iphone
+          - binary_sensor.charging_leanna_iphone
+          - script.update_albert_icloud_phone_attributes
+          - script.update_leanna_icloud_phone_attributes
+          - sensor.charging_albert_iphone
+          - sensor.battery_albert_iphone
+          - sensor.charging_leanna_iphone
+          - sensor.battery_leanna_iphone

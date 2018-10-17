@@ -1,0 +1,97 @@
+###########################################|###########################################
+#                                                                                     #
+#                               NURSERY HEATER AUTO ON                                #
+#                                                                                     #
+#    Turn nursery heater ON when temperature goes below the input number setpoint     #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1529959612041'
+  alias: Nursery Min Temperature
+  trigger:
+  - platform: template
+    value_template: '{{ (states.sensor.nursery_temperature.state | float) <= ((states.input_number.target_nursery_temp.state
+      | float) - 0.1) }}'
+  action:
+  - data:
+      entity_id: switch.nursery_heater_switch
+    service: switch.turn_on
+
+###########################################|###########################################
+#                                                                                     #
+#                              NURSERY HEATER AUTO OFF                                #
+#                                                                                     #
+#    Turn nursery heater OFF when temperature goes above the input number setpoint    #
+#                                                                                     #
+###########################################|###########################################
+
+# Turn Nursery Heaters OFF based on input_number.target_nursery_temp #
+- id: '1530122040178'
+  alias: Nursery Max Temperature
+  trigger:
+  - platform: template
+    value_template: '{{ (states.sensor.nursery_temperature.state | float) > ((states.input_number.target_nursery_temp.state
+      | float) + 0.1) }}'
+  action:
+  - data:
+      entity_id: switch.nursery_heater_switch
+    service: switch.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                             NURSERY HEATER DAILY OFF                                #
+#                                                                                     #
+#               Turn nursery heater OFF during the warm day hours                     #
+#                                                                                     #
+###########################################|############################################################################
+# NOTE: Turn OFF the temperature control automations as well otherwise they will turn the heaters back ON in it's cold #
+########################################################################################################################
+
+- id: '1532685374774'
+  alias: Nursery Auto OFF
+  trigger:
+  - platform: time
+    minutes: /5
+    seconds: 0
+  condition:
+  - after: '09:00:00'
+    before: '16:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: automation.nursery_max_temperature
+    service: automation.turn_off
+  - data:
+      entity_id: automation.nursery_min_temperature
+    service: automation.turn_off
+  - data:
+      entity_id: switch.nursery_heater_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                             NURSERY HEATER DAILY ON                                 #
+#                                                                                     #
+#                Turn nursery heater ON during the cold day hours                     #
+#                                                                                     #
+###########################################|#######################################################################################################
+# NOTE: The heater aren't turned ON directly, but via the temperature control automations that will turn the heater ON when the temperature drops #
+###################################################################################################################################################
+
+- id: '1532685616452'
+  alias: Nursery Auto ON
+  trigger:
+  - platform: time
+    minutes: /5
+    seconds: 0
+  condition:
+  - after: '16:00:00'
+    before: '09:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: automation.nursery_max_temperature
+    service: automation.turn_on
+  - data:
+      entity_id: automation.nursery_min_temperature
+    service: automation.turn_on

@@ -1,0 +1,11 @@
+###########################################|###########################################
+#                                                                                     #
+#                                HOME SLEEP MODE ACTIVE                               #
+#                                                                                     #
+#                        Boolean to turn home sleep mode ON/OFF                       #
+#                                                                                     #
+###########################################|###########################################
+
+home_sleep_mode_boolean:
+  name: Home Sleep Mode Active
+  initial: on

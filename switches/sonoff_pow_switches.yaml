@@ -1,0 +1,429 @@
+###########################################|###########################################
+#                                                                                     #
+#                              LOUNGE TV AREA UPS ON/OFF                              #
+#                                                                                     #
+#        Sonoff POW switch mqtt to control the power supply to the lounge UPS         #
+#                                                                                     #
+###########################################|####################################################################################################
+# NOTE: Devices connected to the UPS:  TV, CCTV Screen, Router, Soundbar, Xbox, IP Camera, Living Room Apple TV, Nixie Clock and Lounge AP POE #
+################################################################################################################################################
+
+- platform: mqtt
+  name: "Router Switch"
+  state_topic: "stat/Sonoff-Router/POWER"
+  command_topic: "cmnd/Sonoff-Router/POWER"
+  availability_topic: "tele/Sonoff-Router/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+###########################################|###########################################
+#                                                                                     #
+#                                    STOVE ON/OFF                                     #
+#                                                                                     #
+#          Sonoff POW switch mqtt to control the power supply to the stove            #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Stove Switch"
+  state_topic: "stat/Sonoff-Stove/POWER"
+  command_topic: "cmnd/Sonoff-Stove/POWER"
+  availability_topic: "tele/Sonoff-Stove/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                                  BOREHOLE ON/OFF                                    #
+#                                                                                     #
+#        Sonoff POW switch mqtt to control the power supply to the borehole           #
+#                                                                                     #
+###########################################|###########################################    
+
+- platform: mqtt
+  name: "Borehole Switch"
+  state_topic: "stat/Sonoff-BoreHole/POWER"
+  command_topic: "cmnd/Sonoff-BoreHole/POWER"
+  availability_topic: "tele/Sonoff-BoreHole/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                  POOL PUMP ON/OFF                                   #
+#                                                                                     #
+#        Sonoff POW switch mqtt to control the power supply to the pool pump          #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Pool Pump Switch"
+  state_topic: "stat/Sonoff-PoolPump/POWER"
+  command_topic: "cmnd/Sonoff-PoolPump/POWER"
+  availability_topic: "tele/Sonoff-PoolPump/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                SERVER AREA UPS ON/OFF                               #
+#                                                                                     #
+#       Sonoff POW switch mqtt to control the power supply to the cottage UPS         #
+#                                                                                     #
+###########################################|###############################################################################
+# NOTE: Devices connected to the UPS:  NUC Server (running Plex), CCTV DVR & power supply and 2 raspberry pi's running HA #
+###########################################################################################################################
+  
+- platform: mqtt
+  name: "NUC Switch"
+  state_topic: "stat/Sonoff-NUC/POWER"
+  command_topic: "cmnd/Sonoff-NUC/POWER"
+  availability_topic: "tele/Sonoff-NUC/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+###########################################|###########################################
+#                                                                                     #
+#                                 MAIN GEYSER ON/OFF                                  #
+#                                                                                     #
+#       Sonoff POW switch mqtt to control the power supply to the main geyser         #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Main Geyser Switch"
+  state_topic: "stat/Sonoff-Geyser_Main/POWER"
+  command_topic: "cmnd/Sonoff-Geyser_Main/POWER"
+  availability_topic: "tele/Sonoff-Geyser_Main/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                BEDROOM AIRCON ON/OFF                                #
+#                                                                                     #
+#  Sonoff POW switch mqtt to control the power supply to the bedroom air conditioner  #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Aircon Switch"
+  state_topic: "stat/Sonoff-AC/POWER"
+  command_topic: "cmnd/Sonoff-AC/POWER"
+  availability_topic: "tele/Sonoff-AC/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                                 DISHWASHER ON/OFF                                   #
+#                                                                                     #
+#       Sonoff POW switch mqtt to control the power supply to the dishwasher          #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Dishwasher Switch"
+  state_topic: "stat/Sonoff-Dishwasher/POWER"
+  command_topic: "cmnd/Sonoff-Dishwasher/POWER"
+  availability_topic: "tele/Sonoff-Dishwasher/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                TUMBLE DRYER ON/OFF                                  #
+#                                                                                     #
+#       Sonoff POW switch mqtt to control the power supply to the tumble dryer        #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Tumble Dryer Switch"
+  state_topic: "stat/Sonoff-Tumble_Dryer/POWER"
+  command_topic: "cmnd/Sonoff-Tumble_Dryer/POWER"
+  availability_topic: "tele/Sonoff-Tumble_Dryer/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                    FRIDGE ON/OFF                                    #
+#                                                                                     #
+#          Sonoff POW switch mqtt to control the power supply to the fridge           #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Fridge Switch"
+  state_topic: "stat/Sonoff-Fridge/POWER"
+  command_topic: "cmnd/Sonoff-Fridge/POWER"
+  availability_topic: "tele/Sonoff-Fridge/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                   FREEZER ON/OFF                                    #
+#                                                                                     #
+#         Sonoff POW switch mqtt to control the power supply to the freezer           #
+#                                                                                     #
+###########################################|########################################### 
+  
+- platform: mqtt
+  name: "Freezer Switch"
+  state_topic: "stat/Sonoff-Freezer/POWER"
+  command_topic: "cmnd/Sonoff-Freezer/POWER"
+  availability_topic: "tele/Sonoff-Freezer/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                               WASHING MACHINE ON/OFF                                #
+#                                                                                     #
+#      Sonoff POW switch mqtt to control the power supply to the washing machine      #
+#                                                                                     #
+###########################################|###########################################   
+  
+- platform: mqtt
+  name: "Washing Machine Switch"
+  state_topic: "stat/Sonoff-Washing_Machine/POWER"
+  command_topic: "cmnd/Sonoff-Washing_Machine/POWER"
+  availability_topic: "tele/Sonoff-Washing_Machine/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                BACKUP GEYSER ON/OFF                                 #
+#                                                                                     #
+#      Sonoff POW switch mqtt to control the power supply to the backup geyser        #
+#                                                                                     #
+###########################################|###########################################   
+  
+- platform: mqtt
+  name: "Backup Geyser Switch"
+  state_topic: "stat/Sonoff-Geyser_Backup/POWER"
+  command_topic: "cmnd/Sonoff-Geyser_Backup/POWER"
+  availability_topic: "tele/Sonoff-Geyser_Backup/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                               COTTAGE GEYSER ON/OFF                                 #
+#                                                                                     #
+#      Sonoff POW switch mqtt to control the power supply to the cottage geyser       #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Cottage Geyser Switch"
+  state_topic: "stat/Sonoff-Geyser_Cottage/POWER"
+  command_topic: "cmnd/Sonoff-Geyser_Cottage/POWER"
+  availability_topic: "tele/Sonoff-Geyser_Cottage/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                 POOL LIGHT ON/OFF                                   #
+#                                                                                     #
+#        Sonoff POW switch mqtt to control the power supply to the pool light         #
+#                                                                                     #
+###########################################|###########################################    
+  
+- platform: mqtt
+  name: "Pool Light Switch"
+  state_topic: "stat/Sonoff-Pool_Light/POWER"
+  command_topic: "cmnd/Sonoff-Pool_Light/POWER"
+  availability_topic: "tele/Sonoff-Pool_Light/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                                 NURSERY POW ON/OFF                                  #
+#                                                                                     #
+#      Sonoff POW switch mqtt to control the power supply to the nursery heaters      #
+#                                                                                     #
+###########################################|###############################################################################################
+# NOTE: This energy monitoring switch is connected in series before another switch that measures the moisture and temperature in the room #
+########################################################################################################################################### 
+
+- platform: mqtt
+  name: "Nursery POW Switch"
+  state_topic: "stat/Sonoff-Nursery_POW/POWER"
+  command_topic: "cmnd/Sonoff-Nursery_POW/POWER"
+  availability_topic: "tele/Sonoff-Nursery_POW/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                               BACKYARD LIGHT ON/OFF                                 #
+#                                                                                     #
+#    Sonoff POW switch mqtt to control the power supply to the backyard flood light   #
+#                                                                                     #
+###########################################|###########################################
+  
+- platform: mqtt
+  name: "Back Light Switch"
+  state_topic: "stat/Sonoff-Back_Light/POWER"
+  command_topic: "cmnd/Sonoff-Back_Light/POWER"
+  availability_topic: "tele/Sonoff-Back_Light/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                            HALL ROOF MULTI-PLUG ON/OFF                              #
+#                                                                                     #
+#    Sonoff POW switch mqtt to control the power supply to the hall roof multi-plug   #
+#                                                                                     #
+###########################################|################################################################################################
+# NOTE: Devices connected to the multi-plug inside the roof: Hue Bridge, Nursery Fairy Lights, Bedroom AP POE, Main Bathroom Extractor Fan #
+############################################################################################################################################
+  
+- platform: mqtt
+  name: "HueExt Switch"
+  state_topic: "stat/Sonoff-HueExt/POWER"
+  command_topic: "cmnd/Sonoff-HueExt/POWER"
+  availability_topic: "tele/Sonoff-HueExt/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                          BEDROOM TV AREA MULTI-PLUG ON/OFF                          #
+#                                                                                     #
+#  Sonoff POW switch mqtt to control the power supply to the main bedroom multi-plug  #
+#                                                                                     #
+###########################################|#####################################################################################
+# NOTE: Devices connected to the multi-plug in the main bedroom: Bedroom TV, Bedroom Apple TV, Bluetooth speaker and humidifier #
+#################################################################################################################################
+  
+- platform: mqtt
+  name: "Bedroom TV Switch"
+  state_topic: "stat/Sonoff-BedroomTV/POWER"
+  command_topic: "cmnd/Sonoff-BedroomTV/POWER"
+  availability_topic: "tele/Sonoff-BedroomTV/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                              MAIN FLOOD LIGHT ON/OFF                                #
+#                                                                                     #
+#     Sonoff POW switch mqtt to control the power supply to the main flood light      #
+#                                                                                     #
+###########################################|###########################################  
+  
+- platform: mqtt
+  name: "Main Flood Light Switch"
+  state_topic: "stat/Sonoff-FloodMain/POWER"
+  command_topic: "cmnd/Sonoff-FloodMain/POWER"
+  availability_topic: "tele/Sonoff-FloodMain/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+###########################################|###########################################
+#                                                                                     #
+#                             PATIO FLOOD LIGHT ON/OFF                                #
+#                                                                                     #
+#     Sonoff POW switch mqtt to control the power supply to the patio flood light     #
+#                                                                                     #
+###########################################|###########################################   
+  
+- platform: mqtt
+  name: "Patio Flood Light Switch"
+  state_topic: "stat/Sonoff-FloodPatio/POWER"
+  command_topic: "cmnd/Sonoff-FloodPatio/POWER"
+  availability_topic: "tele/Sonoff-FloodPatio/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true

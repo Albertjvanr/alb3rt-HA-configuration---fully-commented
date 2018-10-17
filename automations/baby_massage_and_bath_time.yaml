@@ -1,0 +1,88 @@
+###########################################|###########################################
+#                                                                                     #
+#                       BABY MASSAGE AND BATH TIME SCENE START                        #
+#                                                                                     #
+#    Turn ON nursery fairy lights, turn OFF heater automation and turn heater ON      #
+#                                                                                     #
+###########################################|############################################################################################################
+# NOTE: "automation.nursery_auto_on" and "automation.nursery_auto_off" are turned OFF otherwise it will just turn the temperature control back ON      #
+# NOTE: "automation.nursery_max_temperature" and "automation.nursery_min_temperature" are turned OFF to stop temperature control so heater can stay ON #
+########################################################################################################################################################
+
+- id: '1538334734253'
+  alias: Baby Massage and Bath Time Start
+  trigger:
+  - at: '18:10:00'
+    platform: time
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.google_maps_104009438971040744408
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.google_maps_107098793514996861397
+        state: 'home'
+  action:
+  - data:
+      entity_id: switch.nursery_fairy_lights_switch
+    service: switch.turn_on
+  - data:
+      entity_id: automation.nursery_auto_on
+    service: automation.turn_off
+  - data:
+      entity_id: automation.nursery_auto_off
+    service: automation.turn_off
+  - data:
+      entity_id: automation.nursery_max_temperature
+    service: automation.turn_off
+  - data:
+      entity_id: automation.nursery_min_temperature
+    service: automation.turn_off
+  - delay: 00:00:10
+  - data:
+      entity_id: switch.nursery_heater_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                       BABY MASSAGE AND BATH TIME SCENE STOP                         #
+#                                                                                     #
+#    Turn OFF nursery fairy lights, turn ON heater automation and turn heater OFF     #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1535534224783'
+  alias: Baby Massage and Bath Time End
+  trigger:
+  - at: '18:45:00'
+    platform: time
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.google_maps_104009438971040744408
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.google_maps_107098793514996861397
+        state: 'home'
+  action:
+  - data:
+      entity_id: switch.nursery_fairy_lights_switch
+    service: switch.turn_off
+  - data:
+      entity_id: automation.nursery_auto_on
+    service: automation.turn_on
+  - data:
+      entity_id: automation.nursery_auto_off
+    service: automation.turn_on
+  - data:
+      entity_id: automation.nursery_max_temperature
+    service: automation.turn_on
+  - data:
+      entity_id: automation.nursery_min_temperature
+    service: automation.turn_on
+  - delay: 00:00:10
+  - data:
+      entity_id: switch.nursery_heater_switch
+    service: switch.turn_off

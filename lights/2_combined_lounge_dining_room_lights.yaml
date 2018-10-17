@@ -1,0 +1,24 @@
+###########################################|###########################################
+#                                                                                     #
+#                               LIVING ROOM LIGHTS GROUP                              #
+#                                                                                     #
+#          Created single light group to control all the living room lights           #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.lounge_1
+    - light.lounge_2
+    - light.lounge_3
+    - light.lounge_4
+    - light.lounge_5
+    - light.lounge_6
+    - light.lounge_7
+    - light.dining_room_1
+    - light.dining_room_2
+    - light.dining_room_3
+    - light.dining_room_4
+    - light.dining_room_5
+    - light.dining_room_6

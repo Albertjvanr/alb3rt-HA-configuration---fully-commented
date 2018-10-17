@@ -1,0 +1,15 @@
+###########################################|###########################################
+#                                                                                     #
+#                               GOOGLE LOCATION COMPONENT                             #
+#                                                                                     #
+#                         Setup of Google Location component                          #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: google_maps
+  username: !secret google_location_sharing_username
+  password: !secret google_location_sharing_password
+  max_gps_accuracy: 100
+  new_device_defaults:
+    track_new_devices: True
+    hide_if_away: False

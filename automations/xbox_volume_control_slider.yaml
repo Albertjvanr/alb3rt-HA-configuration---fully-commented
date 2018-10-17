@@ -1,0 +1,18 @@
+###########################################|###########################################
+#                                                                                     #
+#                          CONTROL XBOX PLEX CLIENT VOLUME                            #
+#                                                                                     #
+#                 Control Xbox Plex client volume with input slider                   #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533925442678'
+  alias: Adjust Xbox Volume Slider
+  trigger:
+    platform: state
+    entity_id: input_number.xbox_volume
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.xboxone_plex
+        volume_level: '{{ states.input_number.xbox_volume.state | multiply(0.01) }}'

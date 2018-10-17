@@ -1,0 +1,644 @@
+###########################################|###########################################
+#                                                                                     #
+#                                   SONOFF KWH RESET                                  #
+#                                                                                     #
+#             Script to reset and restart of all the Sonoff POW switches              #
+#                                                                                     #
+###########################################|########################################################################################
+# NOTE: Reset the today, yesterday and total kWh logged values of all the Sonoff POW switches with 2 second delays in between      #
+# NOTE: Restart the switches after resetting the values because sometimes the switches retains values until a reboot               #
+# NOTE: The delay in the resets and restarts is to not have all the switches trying to connect to the router/AP's at the same time #
+####################################################################################################################################
+
+'sonoff_pow_kwh_reset':
+  alias: Sonoff kWh reset
+  
+# 1. Sonoff-Router #
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Router/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Router/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Router/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Router/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false  
+    - delay: 00:00:02
+
+# 2. Sonoff-Stove #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Stove/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Stove/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Stove/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Stove/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false  
+    - delay: 00:00:02
+        
+# 3. Sonoff-BoreHole #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BoreHole/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BoreHole/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BoreHole/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BoreHole/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false         
+    - delay: 00:00:02
+        
+# 4. Sonoff-PoolPump #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-PoolPump/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-PoolPump/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-PoolPump/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-PoolPump/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false          
+    - delay: 00:00:02
+        
+# 5. Sonoff-NUC #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-NUC/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-NUC/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-NUC/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-NUC/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false          
+    - delay: 00:00:02
+        
+# 6. Sonoff-Geyser_Main #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Main/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Main/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Main/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Main/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false          
+    - delay: 00:00:02
+        
+# 7. Sonoff-AC #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-AC/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-AC/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-AC/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-AC/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+
+# 8. Sonoff-Dishwasher #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Dishwasher/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Dishwasher/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Dishwasher/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Dishwasher/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+
+# 9. Sonoff-Tumble_Dryer #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Tumble_Dryer/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Tumble_Dryer/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Tumble_Dryer/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Tumble_Dryer/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false        
+    - delay: 00:00:02
+
+# 10. Sonoff-Fridge #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Fridge/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Fridge/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Fridge/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Fridge/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false      
+    - delay: 00:00:02
+
+# 11. Sonoff-Freezer #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Freezer/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Freezer/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Freezer/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Freezer/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false      
+    - delay: 00:00:02    
+    
+# 12. Sonoff-Washing_Machine #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Washing_Machine/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Washing_Machine/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Washing_Machine/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Washing_Machine/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false   
+    - delay: 00:00:02
+
+# 13. Sonoff-Geyser_Backup #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Backup/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Backup/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Backup/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Backup/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false        
+    - delay: 00:00:02
+
+# 14. Sonoff-Geyser_Cottage #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Cottage/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Cottage/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Cottage/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Geyser_Cottage/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false   
+    - delay: 00:00:02
+        
+# 15. Sonoff-Pool_Light #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Pool_Light/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Pool_Light/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Pool_Light/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Pool_Light/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false   
+    - delay: 00:00:02
+        
+# 16. Sonoff-Nursery_POW #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Nursery_POW/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Nursery_POW/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Nursery_POW/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Nursery_POW/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false   
+    - delay: 00:00:02  
+    
+# 18. Sonoff-Back_Light #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Back_Light/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Back_Light/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Back_Light/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-Back_Light/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false    
+    - delay: 00:00:02
+
+# 19. Sonoff-HueExt #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-HueExt/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-HueExt/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-HueExt/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-HueExt/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false         
+    - delay: 00:00:02
+        
+# 20. Sonoff-BedroomTV #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BedroomTV/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BedroomTV/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BedroomTV/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-BedroomTV/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false  
+    - delay: 00:00:02
+
+# 21. Sonoff-FloodMain #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodMain/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodMain/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodMain/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodMain/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false    
+    - delay: 00:00:02
+
+# 22. Sonoff-FloodPatio #
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodPatio/EnergyReset1'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodPatio/EnergyReset2'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodPatio/EnergyReset3'
+        payload: '0'
+        qos: '1'
+        retain: false
+    - delay: 00:00:02
+    - service: mqtt.publish
+      data_template:
+        topic: 'cmnd/Sonoff-FloodPatio/Restart'
+        payload: '1'
+        qos: '1'
+        retain: false

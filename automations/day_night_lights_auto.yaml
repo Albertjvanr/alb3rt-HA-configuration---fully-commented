@@ -1,0 +1,70 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 OUTSIDE LIGHTS OFF                                  #
+#                                                                                     #
+#          Turn all outside day/night and pool lights OFF when sun rises              #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533976442858'
+  alias: Day Night Lights Off
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'on'
+  action:
+  - data:
+      entity_id: switch.main_flood_light_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.patio_flood_light_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.pool_light_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.back_light_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.garage_outside_lights_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                                 OUTSIDE LIGHTS ON                                   #
+#                                                                                     #
+#                Turn all outside day/night and pool lights ON when sun rises         #
+#                                                                                     #
+###########################################|###########################################
+
+# Turn all Day-Night lights ON when sun sets #
+- id: '1533976506689'
+  alias: Day Night Lights On
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'off'
+  action:
+  - data:
+      entity_id: switch.main_flood_light_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.patio_flood_light_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.pool_light_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.back_light_switch
+    service: switch.turn_on
+  - data:
+      entity_id: switch.garage_outside_lights_switch
+    service: switch.turn_on

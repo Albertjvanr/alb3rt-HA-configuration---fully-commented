@@ -1,0 +1,13 @@
+###########################################|###########################################
+#                                                                                     #
+#                              GARAGE CLOSED REED SENSOR                              #
+#                                                                                     #
+#                       Sensor to show if garage door is closed                       #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: mqtt
+  name: "Garage Door Closed"
+  state_topic: "tele/Sonoff-Garage/SENSOR"
+  value_template: '{{ value_json["Switch2"] }}'
+  retain: true

@@ -1,0 +1,23 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  SONARR AND RADARR                                  #
+#                                                                                     #
+#                             Sonarr and Radarr Sensors                               #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: I had to manually configure the host IP for it to work #
+################################################################
+
+- platform: sonarr
+  api_key: !secret sonarr_api
+  host: 192.168.1.99
+  monitored_conditions:
+    - series
+    - upcoming
+  
+- platform: radarr
+  api_key: !secret radarr_api 
+  host: 192.168.1.99 
+  monitored_conditions:
+    - movies
+    - upcoming

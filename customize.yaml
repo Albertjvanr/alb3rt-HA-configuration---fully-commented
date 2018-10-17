@@ -1,0 +1,39 @@
+device_tracker.google_maps_104009438971040744408:
+  friendly_name: Albert
+device_tracker.google_maps_107098793514996861397:
+  friendly_name: Leanna
+device_tracker.android1531351b37ac6f3a:
+  friendly_name: Idah Ext
+device_tracker.unknown_7:
+  friendly_name: Idah House
+sensor.dark_sky_overnight_low_temperature_1:
+  friendly_name: Tomorrow Low
+sensor.dark_sky_daytime_high_temperature_1:
+  friendly_name: Tomorrow High
+cover.garage_door:
+  device_class: garage_door
+  friendly_name: Garage Door
+cover.soundbar_volume:
+  assumed_state: true
+group.default_view:
+  order: 1
+group.lounge:
+  order: 2
+group.bedroom:
+  order: 3
+group.nursery:
+  order: 4
+group.dining_room_kitchen:
+  order: 5
+group.garden_pool:
+  order: 6
+group.network:
+  order: 7
+group.monitors:
+  order: 8
+group.motion_areas:
+  order: 9
+group.test_tab:
+  order: 10
+light.chloe:
+  friendly_name: Chloé Lights

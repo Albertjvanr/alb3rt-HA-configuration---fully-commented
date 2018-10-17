@@ -1,0 +1,15 @@
+###########################################|###########################################
+#                                                                                     #
+#                                XBOX PLEX CLIENT SENSOR                              #
+#                                                                                     #
+#            Binary sensor to show if the Xbox Plex Client is playing media           #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    xbox_plex_playing:
+      friendly_name: "Xbox Plex Playing"
+      value_template: "{{ is_state('media_player.xboxone_plex', 'playing') }}"
+      
+      

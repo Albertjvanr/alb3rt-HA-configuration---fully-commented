@@ -1,0 +1,19 @@
+###########################################|###########################################
+#                                                                                     #
+#                        NETGEAR ROUTER DEVICE TRACKER COMPONENT                      #
+#                                                                                     #
+#                   Setup of Netgear network device tracker component                 #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: netgear
+  name: "Netgear Router"
+  port: 80
+  host: 192.168.1.1
+  username: !secret netgear_admin_username
+  password: !secret netgear_admin_password
+  new_device_defaults:
+    track_new_devices: True
+    hide_if_away: False
+  interval_seconds: 12
+  consider_home: 180

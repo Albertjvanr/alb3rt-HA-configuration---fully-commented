@@ -1,0 +1,41 @@
+###########################################|###########################################
+#                                                                                     #
+#                                    Sun Boolean ON                                   #
+#                                                                                     #
+#                           Turn boolean ON when sun rises                            #
+#                                                                                     #
+###########################################|####################################################
+# NOTE: For use in trigger when sunrise and sunset is not the trigger, but rather sun position #
+################################################################################################
+
+- id: '1536218780002'
+  alias: Sunrise Boolean Update
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.sun_position_boolean
+    service: input_boolean.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                                   Sun Boolean OFF                                   #
+#                                                                                     #
+#                          Turn boolean OFF when sun rises                            #
+#                                                                                     #
+###########################################|####################################################
+# NOTE: For use in trigger when sunrise and sunset is not the trigger, but rather sun position #
+################################################################################################
+
+- id: '1536218805164'
+  alias: Sunset Boolean Update
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.sun_position_boolean
+    service: input_boolean.turn_off

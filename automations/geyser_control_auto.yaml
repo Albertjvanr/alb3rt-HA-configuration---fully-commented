@@ -1,0 +1,322 @@
+###########################################|###########################################
+#                                                                                     #
+#                                GEYSER AUTOMATIONS OFF                               #
+#                                                                                     #
+#          Turn backup and cottage geyser automations OFF when HA restarts            #
+#                                                                                     #
+###########################################|###################################################################################################
+# NOTE: Turn OFF the geyser control automations so that they don't turn the geysers ON before the input booleans automation turns the geysers #
+#       OFF if the booleans are OFF                                                                                                           #
+###############################################################################################################################################
+
+- id: '1534972767202'
+  alias: Geyser Automation OFF After Restart
+  initial_state:  True
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - delay:
+      seconds: 60
+  - data:
+      entity_id: automation.backup_geyser_off
+    service: automation.turn_off
+  - data:
+      entity_id: automation.backup_geyser_on
+    service: automation.turn_off
+  - data:
+      entity_id: automation.cottage_geyser_off
+    service: automation.turn_off
+  - data:
+      entity_id: automation.cottage_geyser_on
+    service: automation.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                            BACKUP GEYSER AUTOMATIONS ON                             #
+#                                                                                     #
+#  Turn backup geyser automations ON if the "Guests in Spare Bedroom" boolean is ON   #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1535034454970'
+  alias: Turn on Backup Geyser Automation
+  trigger:
+  - platform: time
+    minutes: /10
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.backup_geyser_boolean
+    state: 'on'
+  action:
+  - data:
+      entity_id: automation.backup_geyser_on
+    service: automation.turn_on
+  - data:
+      entity_id: automation.backup_geyser_off
+    service: automation.turn_on
+
+###########################################|###########################################
+#                                                                                     #
+#                           BACKUP GEYSER AUTOMATIONS OFF                             #
+#                                                                                     #
+# Turn backup geyser automations OFF if the "Guests in Spare Bedroom" boolean is OFF  #
+#                                                                                     #
+###########################################|########################################################################################
+# NOTE: Also turn OFF the backup geyser because when the automation is OFF, it will leave the geyser ON if that was the last state #
+####################################################################################################################################
+
+- id: '1535034454970'
+  alias: Turn off Backup Geyser Automation
+  trigger:
+  - platform: time
+    minutes: /10
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.backup_geyser_boolean
+    state: 'off'
+  action:
+  - data:
+      entity_id: automation.backup_geyser_on
+    service: automation.turn_off
+  - data:
+      entity_id: automation.backup_geyser_off
+    service: automation.turn_off
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                            COTTAGE GEYSER AUTOMATIONS ON                            #
+#                                                                                     #
+#     Turn cottage geyser automations ON if the "Guests in Cottage" boolean is ON     #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1535811454970'
+  alias: Turn on Cottage Geyser Automation
+  trigger:
+  - platform: time
+    minutes: /10
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.cottage_geyser_boolean
+    state: 'on'
+  action:
+  - data:
+      entity_id: automation.cottage_geyser_on
+    service: automation.turn_on
+  - data:
+      entity_id: automation.cottage_geyser_off
+    service: automation.turn_on    
+
+###########################################|###########################################
+#                                                                                     #
+#                           COTTAGE GEYSER AUTOMATIONS OFF                            #
+#                                                                                     #
+#    Turn backup geyser automations OFF if the "Guests in Cottage" boolean is OFF     #
+#                                                                                     #
+###########################################|#########################################################################################
+# NOTE: Also turn OFF the cottage geyser because when the automation is OFF, it will leave the geyser ON if that was the last state #
+#####################################################################################################################################
+  
+- id: '1535811454970'
+  alias: Turn off Cottage Geyser Automation
+  trigger:
+  - platform: time
+    minutes: /10
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.cottage_geyser_boolean
+    state: 'off'
+  action:
+  - data:
+      entity_id: automation.cottage_geyser_on
+    service: automation.turn_off
+  - data:
+      entity_id: automation.cottage_geyser_off
+    service: automation.turn_off 
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                                   MAIN GEYSER OFF                                   #
+#                                                                                     #
+#             Turn main geyser OFF when the house is using to much power              #
+#                                                                                     #
+###########################################|######################################################################
+# NOTE: Only turn the main geyser OFF if the main geyser is using power and contributing to the high power usage #
+##################################################################################################################
+
+# Main geyser OFF when using too much power #
+- id: '1531995305473'
+  alias: Main Geyser OFF
+  trigger:
+  - above: '6000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - above: '1000'
+    condition: numeric_state
+    entity_id: sensor.main_geyser_power
+  action:
+  - data:
+      entity_id: switch.main_geyser_switch
+    service: switch.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                                   MAIN GEYSER ON                                    #
+#                                                                                     #
+#               Turn main geyser ON when the house is using less power                #
+#                                                                                     #
+###########################################|##################################################
+# NOTE: Only turn the main geyser ON if the house uses less power and the main geyser is OFF  #
+##############################################################################################
+
+- id: '1531995372076'
+  alias: Main Geyser ON
+  trigger:
+  - below: '2000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.main_geyser_switch
+    state: 'off'  
+  action:
+  - data:
+      entity_id: switch.main_geyser_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                                  BACKUP GEYSER OFF                                  #
+#                                                                                     #
+#             Turn backup geyser OFF when the house is using to much power            #
+#                                                                                     #
+###########################################|###############################################################################################################
+# NOTE: Only turn the backup geyser OFF if the backup geyser is using power and contributing to the high power usage                                      #
+# NOTE: Initial state is OFF because this automation is controlled via another automation which relies on whether the input boolean for that geyser is ON #
+###########################################################################################################################################################
+
+- id: '1531995588165'
+  alias: Backup Geyser OFF
+  initial_state: 'off'
+  trigger:
+  - above: '6000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - above: '1000'
+    condition: numeric_state
+    entity_id: sensor.backup_geyser_power
+  action:
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                                   BACKUP GEYSER ON                                  #
+#                                                                                     #
+#               Turn backup geyser ON when the house is using less power              #
+#                                                                                     #
+###########################################|###############################################################################################################
+# NOTE: Only turn the main geyser ON if the house uses less power and the backup geyser is OFF                                                            #
+# NOTE: Delay turning ON the backup geyser by 15 seconds in case the main or cottage geysers turn ON first and increases the house power usage again      #
+# NOTE: Initial state is OFF because this automation is controlled via another automation which relies on whether the input boolean for that geyser is ON #
+###########################################################################################################################################################
+  
+- id: '1531996317742'
+  alias: Backup Geyser ON
+  initial_state: 'off'
+  trigger:
+  - below: '2000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.backup_geyser_switch
+    state: 'off'  
+  action:
+  - delay: 00:00:15
+  - below: '1000'
+    condition: numeric_state
+    entity_id: sensor.main_geyser_power
+  - below: '1000'
+    condition: numeric_state
+    entity_id: sensor.cottage_geyser_power
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                                  COTTAGE GEYSER OFF                                 #
+#                                                                                     #
+#            Turn cottage geyser OFF when the house is using to much power            #
+#                                                                                     #
+###########################################|###############################################################################################################
+# NOTE: Only turn the cottage geyser OFF if the cottage geyser is using power and contributing to the high power usage                                    #
+# NOTE: Initial state is OFF because this automation is controlled via another automation which relies on whether the input boolean for that geyser is ON #
+###########################################################################################################################################################
+
+- id: '1531997549778'
+  alias: Cottage Geyser OFF
+  initial_state: 'off'
+  trigger:
+  - above: '6000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - above: '1000'
+    condition: numeric_state
+    entity_id: sensor.cottage_geyser_power
+  action:
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                                  COTTAGE GEYSER ON                                  #
+#                                                                                     #
+#              Turn cottage geyser ON when the house is using less power              #
+#                                                                                     #
+###########################################|###############################################################################################################
+# NOTE: Only turn the cottage geyser ON if the house uses less power and the cottage geyser is OFF                                                        #
+# NOTE: Delay turning ON the backup geyser by 30 seconds in case the main or backup geysers turn ON first and increases the house power usage again       #
+# NOTE: Initial state is OFF because this automation is controlled via another automation which relies on whether the input boolean for that geyser is ON #
+###########################################################################################################################################################
+
+- id: '1531997852613'
+  alias: Cottage Geyser ON
+  initial_state: 'off'
+  trigger:
+  - below: '2000'
+    entity_id: sensor.current_power_usage
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.cottage_geyser_switch
+    state: 'off'  
+  action:
+  - delay: 00:00:30
+  - below: '1000'
+    condition: numeric_state
+    entity_id: sensor.main_geyser_power
+  - below: '1000'
+    condition: numeric_state
+    entity_id: sensor.backup_geyser_power
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_on

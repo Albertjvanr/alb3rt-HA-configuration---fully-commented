@@ -1,0 +1,22 @@
+###########################################|###########################################
+#                                                                                     #
+#                          DAILY CONFIG SNAPSHOT AND BACKUP                           #
+#                                                                                     #
+#         Create Snapshot backup and upload to Dropbox at sunrise and sunset          #
+#                                                                                     #
+###########################################|############################################
+# NOTE: The delay is to ensure that the snapshot completes before uploading to Dropbox #
+########################################################################################
+
+- id: '1530647525626'
+  alias: Create Full Snapshot and Backup to Dropbox
+  trigger:
+  - event: sunrise
+    platform: sun
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - service: script.create_full_snapshot
+  - delay: 00:15:00
+  - service: script.dropbox_upload

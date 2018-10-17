@@ -1,0 +1,28 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 MOTION AREAS LIGHTS                                 #
+#                                                                                     #
+#          Created single light group to control all the motion area lights           #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: group
+  name: Motion Areas Lights
+  entities:
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.kitchen_4  
+    - light.face_on_1
+    - light.face_on_2
+    - light.face_on_3
+    - light.main_bathroom_1
+    - light.main_bathroom_2
+    - light.main_bathroom_3
+    - light.hall_1
+    - light.hall_2
+    - light.hall_3
+    - light.guest_toilet_1
+    - light.guest_bathroom_1
+    - light.guest_bathroom_2
+    - light.guest_bathroom_3

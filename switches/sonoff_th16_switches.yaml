@@ -1,0 +1,43 @@
+###########################################|###########################################
+#                                                                                     #
+#                      NURSERY HEATER HEAT CONTROL SWITCH ON/OFF                      #
+#                                                                                     #
+#     Sonoff TH16 switch mqtt to turn ON/OFF the wall heater panels in the nursery    #
+#                                                                                     #
+###########################################|#############################################################################################
+# NOTE: This switch also has a temperature and humidity sensor and is connected in series after a Sonoff POW to measure the power usage #
+#########################################################################################################################################
+
+- platform: mqtt
+  name: "Nursery Heater Switch"
+  state_topic: "stat/Sonoff-Heat1/POWER"
+  command_topic: "cmnd/Sonoff-Heat1/POWER"
+  availability_topic: "tele/Sonoff-Heat1/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+###########################################|###########################################
+#                                                                                     #
+#                  MAIN BATHROOM EXTRACTOR FAN CONTROL SWITCH ON/OFF                  #
+#                                                                                     #
+#        Sonoff TH16 switch mqtt to turn ON/OFF the main bathroom extractor fan       #
+#                                                                                     #
+###########################################|#######################################################################
+# NOTE: This switch also has a temperature and humidity sensor to trigger whether we are steaming up the bathroom #
+###################################################################################################################
+  
+- platform: mqtt
+  name: "Bathroom Extractor Switch"
+  state_topic: "stat/Sonoff-Extractor_Fan/POWER"
+  command_topic: "cmnd/Sonoff-Extractor_Fan/POWER"
+  availability_topic: "tele/Sonoff-Extractor_Fan/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true

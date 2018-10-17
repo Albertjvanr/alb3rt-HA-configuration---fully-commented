@@ -1,0 +1,21 @@
+###########################################|###########################################
+#                                                                                     #
+#                        GARAGE RELAY TRIGGER SWITCH OPEN/CLOSE                       #
+#                                                                                     #
+#    Sonoff SV switch mqtt to trigger a relay which triggers the garage door motor    #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: It has the effect of pushing the garage door motor remote button #
+##########################################################################
+
+- platform: mqtt
+  name: "Garage Door Button"
+  state_topic: "stat/Sonoff-Garage/POWER"
+  command_topic: "cmnd/Sonoff-Garage/POWER"
+  availability_topic: "tele/Sonoff-Garage/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false

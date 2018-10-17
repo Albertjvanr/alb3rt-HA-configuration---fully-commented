@@ -1,0 +1,13 @@
+###########################################|###########################################
+#                                                                                     #
+#                                     SUN BOOLEAN                                     #
+#                                                                                     #
+#              Boolean to show if the sun is above or below the horizon               #
+#                                                                                     #
+###########################################|########################################################################
+# NOTE: This is usefull when sunset or sunrise is not the trigger but rather whether the sun is already up or down #
+####################################################################################################################
+
+sun_position_boolean:
+  name: Sun Position
+  icon: mdi:white-balance-sunny

@@ -1,0 +1,43 @@
+###########################################|###########################################
+#                                                                                     #
+#                               ALBERT IPHONE CHARGING                                #
+#                                                                                     #
+#                  Binary sensor to show if Albert's iPhone is charging               #
+#                                                                                     #
+###########################################|######################################################################################################################
+# NOTE: Because the iPhone sensor state changes to "not_available" when charged, assuming charging when the state is "charging", "charged" or battery is at 100% #
+##################################################################################################################################################################
+
+- platform: template
+  sensors:
+    charging_albert_iphone:
+      friendly_name: "Albert iPhone Charging"
+      device_class: power
+      value_template: >-   
+        {{ 
+           is_state_attr('device_tracker.albertiphone', 'battery_status', 'Charging') 
+        or is_state_attr('device_tracker.albertiphone', 'battery', 100)
+        or is_state_attr('device_tracker.albertiphone', 'battery_status', 'Charged')
+        }}
+      
+###########################################|###########################################
+#                                                                                     #
+#                               LEANNA IPHONE CHARGING                                #
+#                                                                                     #
+#                  Binary sensor to show if Leanna's iPhone is charging               #
+#                                                                                     #
+###########################################|######################################################################################################################
+# NOTE: Because the iPhone sensor state changes to "not_available" when charged, assuming charging when the state is "charging", "charged" or battery is at 100% #
+##################################################################################################################################################################
+
+- platform: template
+  sensors:
+    charging_leanna_iphone:
+      friendly_name: "Leanna iPhone Charging"
+      device_class: power
+      value_template: >-   
+        {{ 
+           is_state_attr('device_tracker.leannaiphone', 'battery_status', 'Charging') 
+        or is_state_attr('device_tracker.leannaiphone', 'battery', 100) 
+        or is_state_attr('device_tracker.leannaiphone', 'battery_status', 'Charged') 
+        }}

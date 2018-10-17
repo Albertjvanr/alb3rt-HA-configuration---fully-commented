@@ -1,0 +1,24 @@
+###########################################|###########################################
+#                                                                                     #
+#                                IN BED/AWAKE SENSOR                                  #
+#                                                                                     #
+#                     Sensor to show if we are awake or in bed                        #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    both_in_bed:
+      friendly_name: "In Bed"
+      value_template: >-
+        {% if is_state('binary_sensor.in_bed_bayesian', 'on') %}
+          In Bed
+        {% else %}
+          Awake
+        {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.in_bed_bayesian', 'on') %}
+          mdi:sleep
+        {% else %}
+          mdi:brightness-1
+        {% endif %}

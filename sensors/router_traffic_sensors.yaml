@@ -1,0 +1,67 @@
+###########################################|###########################################
+#                                                                                     #
+#                               ROUTER RECEIVED TRAFFIC                               #
+#                                                                                     #
+#                        Router received traffic in megabytes                         #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    router_traffic_received:
+      value_template: "{{ '{0:,.0f}'.format((states.sensor.r7800_gateway_bytes_received.state | float) / 1000000) | round(0) }}"
+      friendly_name: "Router Traffic Received"
+      icon_template: mdi:speedometer
+      unit_of_measurement: "MB"
+      
+###########################################|###########################################
+#                                                                                     #
+#                                  ROUTER SENT TRAFFIC                                #
+#                                                                                     #
+#                           Router sent traffic in megabytes                          #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    router_traffic_sent:
+      value_template: "{{ '{0:,.0f}'.format((states.sensor.r7800_gateway_bytes_sent.state | float) / 1000000) | round(0) }}"
+      friendly_name: "Router Traffic Sent"
+      icon_template: mdi:speedometer
+      unit_of_measurement: "MB"
+      
+###########################################|###########################################
+#                                                                                     #
+#                              ROUTER DOWNLOAD TRAFFIC                                #
+#                                                                                     #
+#                          Current router download traffic                            #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Formatting in code adds commas every '000 #
+###################################################
+
+- platform: template
+  sensors:
+    router_download_traffic:
+      value_template: "{{ '{0:,.0f}'.format(states.sensor.r7800_gateway_kbytesec_received.state | float) | round(0) }}"
+      friendly_name: "Router Download Traffic"
+      icon_template: mdi:speedometer
+      unit_of_measurement: "kB/s"
+      
+###########################################|###########################################
+#                                                                                     #
+#                              ROUTER DOWNLOAD TRAFFIC                                #
+#                                                                                     #
+#                          Current router download traffic                            #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Formatting in code adds commas every '000 #
+###################################################
+
+- platform: template
+  sensors:
+    router_upload_traffic:
+      value_template: "{{ '{0:,.0f}'.format(states.sensor.r7800_gateway_kbytesec_sent.state | float) | round(0) }}"
+      friendly_name: "Router Upload Traffic"
+      icon_template: mdi:speedometer
+      unit_of_measurement: "kB/s"

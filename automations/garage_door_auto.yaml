@@ -1,0 +1,158 @@
+###########################################|###########################################
+#                                                                                     #
+#                            GARAGE DOOR OPEN ALBERT HOME                             #
+#                                                                                     #
+#       Open the garage door if closed when Albert gets home and notify Albert        #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1534431236397'
+  alias: Albert Home Garage Open
+  trigger:
+  - entity_id: device_tracker.google_maps_104009438971040744408
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'ON'
+  action:
+  - data:
+      entity_id: script.garage_door_open_trigger
+    service: script.toggle
+  - data:
+      message: Garage Door Opening
+      title: Automation
+    service: notify.ios_albert_iphone
+    
+###########################################|###########################################
+#                                                                                     #
+#                            GARAGE DOOR OPEN LEANNA HOME                             #
+#                                                                                     #
+#       Open the garage door if closed when Leanna gets home and notify Leanna        #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533431636488'
+  alias: Leanna Home Garage Open
+  trigger:
+  - entity_id: device_tracker.google_maps_107098793514996861397
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'ON'
+  action:
+  - data:
+      entity_id: script.garage_door_open_trigger
+    service: script.toggle
+  - data:
+      message: Garage Door Opening
+      title: Automation
+    service: notify.ios_leanna_iphone
+    
+###########################################|###########################################
+#                                                                                     #
+#                           GARAGE DOOR CLOSE ALBERT LEAVES                           #
+#                                                                                     #
+#       Close the garage door if open and Leanna is not home when Albert leaves       #
+#                                  and notify Albert                                  #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1534509311120'
+  alias: Albert Leave Garage Close
+  trigger:
+  - entity_id: device_tracker.google_maps_104009438971040744408
+    from: home
+    platform: state
+    to: not_home
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{% if not is_state('device_tracker.google_maps_107098793514996861397', 'home') %}true{% endif %}"
+      - condition: state
+        entity_id: sensor.garage_door_closed
+        state: 'OFF'
+  action:
+  - data:
+      entity_id: script.garage_door_close_trigger
+    service: script.toggle
+  - data:
+      message: Garage Door Closing
+      title: Automation
+    service: notify.ios_albert_iphone
+    
+###########################################|###########################################
+#                                                                                     #
+#                           GARAGE DOOR CLOSE LEANNA LEAVES                           #
+#                                                                                     #
+#       Close the garage door if open and Albert is not home when Leanna leaves       #
+#                                  and notify Leanna                                  #
+#                                                                                     #
+###########################################|###########################################
+
+# Close the Garage Door when Leanna leaves and Albert is not Home and Notify Leanna 
+- id: '1534738551120'
+  alias: Leanna Leave Garage Close
+  trigger:
+  - entity_id: device_tracker.google_maps_107098793514996861397
+    from: home
+    platform: state
+    to: not_home
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{% if not is_state('device_tracker.google_maps_104009438971040744408', 'home') %}true{% endif %}"
+      - condition: state
+        entity_id: sensor.garage_door_closed
+        state: 'OFF'
+  action:
+  - data:
+      entity_id: script.garage_door_close_trigger
+    service: script.toggle
+  - data:
+      message: Garage Door Closing
+      title: Automation
+    service: notify.ios_leanna_iphone
+    
+###########################################|###########################################
+#                                                                                     #
+#                             GARAGE DOOR OPEN ON WORKDAYS                            #
+#                                                                                     #
+#     Open the garage door when we get out of bed if someone is home on work days     #
+#                                                                                     #
+###########################################|######################################################################
+# NOTE: "script.garage_door_open_trigger" will only trigger if the garage door is closed (see script for details #
+##################################################################################################################
+
+- id: '1538733826089'
+  alias: Garage Open on Workday Mornings
+  trigger:
+  - entity_id: binary_sensor.in_bed_bayesian
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: device_tracker.google_maps_104009438971040744408
+            state: home        
+          - condition: state
+            entity_id: device_tracker.google_maps_107098793514996861397
+            state: home  
+  action:
+  - data:
+      entity_id: script.garage_door_open_trigger
+    service: script.toggle

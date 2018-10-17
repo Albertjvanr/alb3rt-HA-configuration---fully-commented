@@ -1,0 +1,56 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 XBOX ON LEANNA HOME                                 #
+#                                                                                     #
+#        Turn Xbox ON and notify Albert when Leanna gets home during work hours       #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1530714563900'
+  alias: Leanna Home Xbox On
+  trigger:
+  - entity_id: device_tracker.google_maps_107098793514996861397
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '08:00:00'
+    before: '20:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: switch.xbox
+    service: switch.turn_on
+  - data:
+      message: Xbox Turned On
+      title: Leanna Home
+    service: notify.ios_albert_iphone
+    
+###########################################|###########################################
+#                                                                                     #
+#                                 XBOX ON ALBERT HOME                                 #
+#                                                                                     #
+#        Turn Xbox ON and notify Leanna when Albert gets home during work hours       #
+#                                                                                     #
+###########################################|###########################################
+
+# Turn Xbox ON and Notify Leanna when Albert gets home #
+- id: '1530736517440'
+  alias: Albert Home Xbox On
+  trigger:
+  - entity_id: device_tracker.google_maps_104009438971040744408
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '08:00:00'
+    before: '20:00:00'
+    condition: time
+  action:
+  - data:
+      entity_id: switch.xbox
+    service: switch.turn_on
+  - data:
+      message: Xbox Turned On
+      title: AlbertHome
+    service: notify.ios_leanna_iphone

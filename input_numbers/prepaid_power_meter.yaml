@@ -1,0 +1,35 @@
+###########################################|###########################################
+#                                                                                     #
+#                          ELECTRICITY PREPAID LOAD VALUE                             #
+#                                                                                     #
+#            Input number to input prepaid meter reading when loading units           #
+#                                                                                     #
+###########################################|###########################################
+
+prepaid_power_meter_load:
+  name: Prepaid Meter Load
+  min: 0
+  max: 500
+  step: 1
+  mode: box
+  unit_of_measurement: "kWh"
+  icon: mdi:target
+  
+###########################################|###########################################
+#                                                                                     #
+#                         ELECTRICITY PREPAID CURRENT VALUE                           #
+#                                                                                     #
+#                 Input number to input current prepaid meter reading                 #
+#                                                                                     #
+###########################################|##########################################################################################################
+# NOTE: This is used to calculate the difference between the measures energy via Sonoff POW switches and what is actually used via the prepaid meter #
+######################################################################################################################################################
+
+prepaid_power_meter_current:
+  name: Prepaid Meter Now
+  min: 0
+  max: 500
+  step: 1
+  mode: box
+  unit_of_measurement: "kWh"
+  icon: mdi:target

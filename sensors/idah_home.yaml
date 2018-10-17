@@ -1,0 +1,24 @@
+###########################################|###########################################
+#                                                                                     #
+#                                   IDAH HOME SENSOR                                  #
+#                                                                                     #
+#                            Sensor to show if Idah is home                           #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    idah_home:
+      friendly_name: "Idah"
+      value_template: >-
+        {% if is_state('binary_sensor.idah_home_bayesian', 'on') %}
+          Home
+        {% else %}
+          Away
+        {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.idah_home_bayesian', 'on') %}
+          mdi:home
+        {% else %}
+          mdi:close
+        {% endif %}

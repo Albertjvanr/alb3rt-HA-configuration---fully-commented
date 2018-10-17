@@ -1,0 +1,683 @@
+albert_iphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: albert iphone
+  picture:
+  track: true
+
+leanna_iphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: leanna iphone
+  picture:
+  track: true
+
+leannaiphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Leanna iPhone
+  picture:
+  track: true
+
+cjsipad:
+  hide_if_away: false
+  icon:
+  mac:
+  name: CJ's iPad
+  picture:
+  track: true
+
+albertsmacbookpro:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Albert’s MacBook Pro
+  picture:
+  track: true
+
+albertiphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Albert iPhone
+  picture:
+  track: true
+
+sonofffloodpatio0008:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:EA:A0:08
+  name: SONOFF-FLOODPATIO-0008
+  picture:
+  track: false
+
+sonoffgeyser_backup7621:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:EA:9D:C5
+  name: SONOFF-GEYSER BACKUP-7621
+  picture:
+  track: false
+
+wn2500rp:
+  hide_if_away: false
+  icon:
+  mac: 02:0F:B5:0E:19:F6
+  name: WN2500RP
+  picture:
+  track: false
+
+sonoffrouter7328:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:EA:5C:A0
+  name: SONOFF-ROUTER-7328
+  picture:
+  track: false
+
+sonoffwashing_machine6541:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:EA:59:8D
+  name: SONOFF-WASHING MACHINE-6541
+  picture:
+  track: false
+
+sonoffback_light6953:
+  hide_if_away: false
+  icon:
+  mac: 5C:CF:7F:7F:FB:29
+  name: SONOFF-BACK LIGHT-6953
+  picture:
+  track: false
+
+loungeap:
+  hide_if_away: false
+  icon:
+  mac: FC:EC:DA:34:6F:C4
+  name: LOUNGEAP
+  picture:
+  track: false
+
+bedroomap:
+  hide_if_away: false
+  icon:
+  mac: FC:EC:DA:34:BB:AD
+  name: BEDROOMAP
+  picture:
+  track: false
+
+sonoffextractor_fan0949:
+  hide_if_away: false
+  icon:
+  mac: 5C:CF:7F:7F:63:B5
+  name: SONOFF-EXTRACTOR FAN-0949
+  picture:
+  track: false
+
+appletv:
+  hide_if_away: false
+  icon:
+  mac: 14:99:E2:24:F1:E7
+  name: APPLE-TV
+  picture:
+  track: false
+
+googlehomemini:
+  hide_if_away: false
+  icon:
+  mac: E4:F0:42:3F:13:4E
+  name: GOOGLE-HOME-MINI
+  picture:
+  track: false
+
+sonoffdishwasher3025:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:CB:D1
+  name: SONOFF-DISHWASHER-3025
+  picture:
+  track: false
+
+sonofffreezer3649:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:CE:41
+  name: SONOFF-FREEZER-3649
+  picture:
+  track: false
+
+sonoffpoolpump3786:
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:4E:8E:CA
+  name: SONOFF-POOLPUMP-3786
+  picture:
+  track: false
+
+sonoffpool_light3028:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:CB:D4
+  name: SONOFF-POOL LIGHT-3028
+  picture:
+  track: false
+
+sonoffbedroomtv1722:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:C6:BA
+  name: SONOFF-BEDROOMTV-1722
+  picture:
+  track: false
+
+sonoffnursery_pow2623:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:CA:3F
+  name: SONOFF-NURSERY POW-2623
+  picture:
+  track: false
+
+sonoffac7671:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:14:BD:F7
+  name: SONOFF-AC-7671
+  picture:
+  track: false
+
+sonoffgeyser_main1165:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:80:04:8D
+  name: SONOFF-GEYSER MAIN-1165
+  picture:
+  track: false
+
+sonoffstove2526:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:80:09:DE
+  name: SONOFF-STOVE-2526
+  picture:
+  track: false
+
+sonoffborehole1016:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:80:03:F8
+  name: SONOFF-BOREHOLE-1016
+  picture:
+  track: false
+
+sonoffhueext2031:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:80:07:EF
+  name: SONOFF-HUEEXT-2031
+  picture:
+  track: false
+
+nuc:
+  hide_if_away: false
+  icon:
+  mac: 30:9C:23:A2:02:78
+  name: NUC
+  picture:
+  track: false
+
+sonoffgeyser_cottage5716:
+  hide_if_away: false
+  icon:
+  mac: 84:F3:EB:B1:D6:54
+  name: SONOFF-GEYSER COTTAGE-5716
+  picture:
+  track: false
+
+unknown:
+  hide_if_away: false
+  icon:
+  mac: 00:23:63:6C:2B:EE
+  name: <unknown>
+  picture:
+  track: false
+
+sonofffairy1315:
+  hide_if_away: false
+  icon:
+  mac: 84:F3:EB:B0:05:23
+  name: SONOFF-FAIRY-1315
+  picture:
+  track: false
+
+localhost:
+  hide_if_away: false
+  icon:
+  mac: FC:8F:90:E8:73:69
+  name: LOCALHOST
+  picture:
+  track: false
+
+hassio:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:80:FD:9B
+  name: HASSIO
+  picture:
+  track: false
+
+ipc:
+  hide_if_away: false
+  icon:
+  mac: 78:A5:DD:0C:17:55
+  name: IPC
+  picture:
+  track: false
+
+sonoffgarage_out_lights4499:
+  hide_if_away: false
+  icon:
+  mac: 84:F3:EB:92:11:93
+  name: SONOFF-GARAGE OUT LIGHTS-4499
+  picture:
+  track: false
+
+harmonyhub:
+  hide_if_away: false
+  icon:
+  mac: C8:DB:26:02:07:21
+  name: HARMONYHUB
+  picture:
+  track: false
+
+sonoffgarage3017:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:25:2B:C9
+  name: SONOFF-GARAGE-3017
+  picture:
+  track: false
+
+philipshue:
+  hide_if_away: false
+  icon:
+  mac: 00:17:88:71:09:39
+  name: PHILIPS-HUE
+  picture:
+  track: false
+
+googlehomemini_2:
+  hide_if_away: false
+  icon:
+  mac: E4:F0:42:0E:E3:BE
+  name: GOOGLE-HOME-MINI
+  picture:
+  track: false
+
+sonoffgeyserbypass8160:
+  hide_if_away: false
+  icon:
+  mac: DC:4F:22:83:3F:E0
+  name: SONOFF-GEYSERBYPASS-8160
+  picture:
+  track: false
+
+hassio_services:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:F0:F1:B9
+  name: HASSIO SERVICES
+  picture:
+  track: false
+
+sonoffgarage_in_light0794:
+  hide_if_away: false
+  icon:
+  mac: 84:F3:EB:AF:E3:1A
+  name: SONOFF-GARAGE IN LIGHT-0794
+  picture:
+  track: false
+
+sonofffridge5808:
+  hide_if_away: false
+  icon:
+  mac: DC:4F:22:37:56:B0
+  name: SONOFF-FRIDGE-5808
+  picture:
+  track: false
+
+sonoffheat12099:
+  hide_if_away: false
+  icon:
+  mac: DC:4F:22:37:88:33
+  name: SONOFF-HEAT1-2099
+  picture:
+  track: false
+
+sonofftumble_dryer5834:
+  hide_if_away: false
+  icon:
+  mac: DC:4F:22:37:56:CA
+  name: SONOFF-TUMBLE DRYER-5834
+  picture:
+  track: false
+
+sonofffloodmain5255:
+  hide_if_away: false
+  icon:
+  mac: DC:4F:22:37:54:87
+  name: SONOFF-FLOODMAIN-5255
+  picture:
+  track: false
+
+albertsmbp2:
+  hide_if_away: false
+  icon:
+  mac: 78:31:C1:D4:29:AC
+  name: ALBERTS-MBP-2
+  picture:
+  track: false
+
+cjsipad_2:
+  hide_if_away: false
+  icon:
+  mac: 8C:FA:BA:D6:D5:C2
+  name: CJS-IPAD
+  picture:
+  track: false
+
+bedroom:
+  hide_if_away: false
+  icon:
+  mac: 40:CB:C0:C3:00:CA
+  name: BEDROOM
+  picture:
+  track: false
+
+unknown_2:
+  hide_if_away: false
+  icon:
+  mac: 98:93:CC:B3:C1:24
+  name: <unknown>
+  picture:
+  track: false
+
+albertiphone_2:
+  hide_if_away: false
+  icon:
+  mac: F0:98:9D:78:D8:01
+  name: ALBERT-IPHONE
+  picture:
+  track: false
+
+sonofftvglobes6419:
+  hide_if_away: false
+  icon:
+  mac: 84:F3:EB:A7:19:13
+  name: SONOFF-TVGLOBES-6419
+  picture:
+  track: false
+
+xboxone:
+  hide_if_away: false
+  icon:
+  mac: 30:59:B7:E4:FD:09
+  name: XBOXONE
+  picture:
+  track: false
+
+sonoffnuc5470:
+  hide_if_away: false
+  icon:
+  mac: 2C:3A:E8:3B:75:5E
+  name: SONOFF-NUC-5470
+  picture:
+  track: false
+
+unknown_3:
+  hide_if_away: false
+  icon:
+  mac: 20:0C:C8:0E:19:F7
+  name: <unknown>
+  picture:
+  track: false
+
+unknown_4:
+  hide_if_away: false
+  icon:
+  mac: E8:AB:FA:51:84:18
+  name: <unknown>
+  picture:
+  track: false
+
+leannaiphone_2:
+  hide_if_away: false
+  icon:
+  mac: 48:4B:AA:B8:5B:AD
+  name: LEANNA-IPHONE
+  picture:
+  track: true
+
+albertsapple_watch:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Albert’s Apple Watch
+  picture:
+  track: true
+
+unknown_5:
+  hide_if_away: false
+  icon:
+  mac: BC:0F:2B:9F:20:C5
+  name: <unknown>
+  picture:
+  track: false
+
+android1531351b37ac6f3a:
+  hide_if_away: false
+  icon:
+  mac: 02:0F:B5:AA:45:16
+  name: ANDROID-1531351B37AC6F3A
+  picture:
+  track: true
+
+l10ljansevr:
+  hide_if_away: false
+  icon:
+  mac: 28:16:AD:08:CC:9E
+  name: L10-LJANSEVR
+  picture:
+  track: false
+
+unknown_6:
+  hide_if_away: false
+  icon:
+  mac: 6E:12:35:B4:51:53
+  name: <unknown>
+  picture:
+  track: false
+
+albertsplewatch:
+  hide_if_away: false
+  icon:
+  mac: 38:C9:86:71:D7:1C
+  name: ALBERTSPLEWATCH
+  picture:
+  track: true
+
+unknown_7:
+  hide_if_away: false
+  icon:
+  mac: 8C:9F:3B:AA:45:16
+  name: <unknown>
+  picture:
+  track: true
+
+google_maps_107098793514996861397:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Leanna
+  picture: /local/leanna.jpg
+#  name: google maps 107098793514996861397
+#  picture: https://lh6.googleusercontent.com/-GsMNe4ZWg6Y/AAAAAAAAAAI/AAAAAAAAAA4/hOMT0XzC-5k/photo.jpg
+  track: true
+
+google_maps_104009438971040744408:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Albert
+  picture: /local/albert.jpg
+#  name: google maps 104009438971040744408
+#  picture: https://lh6.googleusercontent.com/-VUoVIqTiRGg/AAAAAAAAAAI/AAAAAAAAABk/IqVVDGuT9ls/photo.jpg
+  track: true
+
+unknown_8:
+  hide_if_away: false
+  icon:
+  mac: 24:18:1D:70:D2:53
+  name: <unknown>
+  picture:
+  track: true
+
+android4cb0ee55bd885cff:
+  hide_if_away: false
+  icon:
+  mac: 84:38:38:1B:D7:6C
+  name: ANDROID-4CB0EE55BD885CFF
+  picture:
+  track: true
+
+hannasiphone:
+  hide_if_away: false
+  icon:
+  mac: D0:C5:F3:DC:D1:1F
+  name: HANNAS-IPHONE
+  picture:
+  track: true
+
+unknown_9:
+  hide_if_away: false
+  icon:
+  mac: D0:C5:F3:1A:CC:48
+  name: <unknown>
+  picture:
+  track: true
+
+wilmaipad:
+  hide_if_away: false
+  icon:
+  mac: 8C:FA:BA:B2:82:35
+  name: WILMA-IPAD
+  picture:
+  track: true
+
+galaxya52017:
+  hide_if_away: false
+  icon:
+  mac: 90:97:F3:17:28:18
+  name: GALAXY-A5-2017
+  picture:
+  track: true
+
+unknown_10:
+  hide_if_away: false
+  icon:
+  mac: 7C:7A:91:8D:24:D0
+  name: <unknown>
+  picture:
+  track: true
+
+sonoff0214:
+  hide_if_away: false
+  icon:
+  mac: 5C:CF:7F:92:40:D6
+  name: SONOFF-0214
+  picture:
+  track: true
+
+galaxys8:
+  hide_if_away: false
+  icon:
+  mac: 02:0F:B5:84:1B:7E
+  name: GALAXY-S8
+  picture:
+  track: true
+
+unknown_11:
+  hide_if_away: false
+  icon:
+  mac: 4C:49:E3:D0:50:D1
+  name: <unknown>
+  picture:
+  track: true
+
+galaxys9:
+  hide_if_away: false
+  icon:
+  mac: 24:18:1D:E7:E5:3F
+  name: GALAXY-S9
+  picture:
+  track: true
+
+unknown_12:
+  hide_if_away: false
+  icon:
+  mac: 78:02:F8:3C:EC:CF
+  name: <unknown>
+  picture:
+  track: true
+
+samsunggalaxys7:
+  hide_if_away: false
+  icon:
+  mac: 4C:66:41:9B:2B:6D
+  name: SAMSUNG-GALAXY-S7
+  picture:
+  track: true
+
+melgalaxys8:
+  hide_if_away: false
+  icon:
+  mac: 30:07:4D:19:D5:B9
+  name: MEL-GALAXY-S8
+  picture:
+  track: true
+
+unknown_13:
+  hide_if_away: false
+  icon:
+  mac: 40:9C:28:23:F5:A6
+  name: <unknown>
+  picture:
+  track: true
+
+rriphone8:
+  hide_if_away: false
+  icon:
+  mac: 80:B0:3D:C4:6B:08
+  name: RR-IPHONE-8
+  picture:
+  track: true
+
+applewatch:
+  hide_if_away: false
+  icon:
+  mac: 30:63:6B:6F:95:CF
+  name: APPLE-WATCH
+  picture:
+  track: true
+
+unknown_14:
+  hide_if_away: false
+  icon:
+  mac: E4:E4:AB:BC:F4:7A
+  name: <unknown>
+  picture:
+  track: true

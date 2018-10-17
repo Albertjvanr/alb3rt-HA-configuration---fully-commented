@@ -1,0 +1,12 @@
+###########################################|###########################################
+#                                                                                     #
+#                                     HA Restart                                      #
+#                                                                                     #
+#                            Script to trigger an HA restart                          #
+#                                                                                     #
+###########################################|###########################################
+
+'hassio_restart':
+  alias: HASSIO Restart
+  sequence:
+  - service: homeassistant.restart

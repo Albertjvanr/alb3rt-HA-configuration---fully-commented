@@ -1,0 +1,69 @@
+###########################################|###########################################
+#                                                                                     #
+#                                HOME TOTAL ENERGY USAGE                              #
+#                                                                                     #
+#         Template sensor to add the Sonoff POW's logged energy usage sensors         #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    total_energy_usage:
+      value_template: "{{ ((states.sensor.borehole_energy.state | float) + 
+                           (states.sensor.aircon_energy.state | float) + 
+                           (states.sensor.pool_pump_energy.state | float) + 
+                           (states.sensor.router_energy.state | float) + 
+                           (states.sensor.main_geyser_energy.state | float) + 
+                           (states.sensor.nuc_energy.state | float) + 
+                           (states.sensor.stove_energy.state | float) + 
+                           (states.sensor.dishwasher_energy.state | float) + 
+                           (states.sensor.tumble_dryer_energy.state | float) + 
+                           (states.sensor.fridge_energy.state | float) + 
+                           (states.sensor.freezer_energy.state | float) + 
+                           (states.sensor.washing_machine_energy.state | float) + 
+                           (states.sensor.backup_geyser_energy.state | float) + 
+                           (states.sensor.cottage_geyser_energy.state | float) + 
+                           (states.sensor.pool_light_energy.state | float) + 
+                           (states.sensor.nursery_pow_energy.state | float) + 
+                           (states.sensor.back_light_energy.state | float) + 
+                           (states.sensor.hueext_energy.state | float) + 
+                           (states.sensor.bedroom_tv_energy.state | float) + 
+                           (states.sensor.main_flood_light_energy.state | float) + 
+                           (states.sensor.patio_flood_light_energy.state | float)) | round(1) }}"
+      friendly_name: "Total kWh Usage"
+      unit_of_measurement: "kWh"
+
+###########################################|###########################################
+#                                                                                     #
+#                               HOME TOTAL POWER USAGE                                #
+#                                                                                     #
+#         Template sensor to add the Sonoff POW's current power usage sensors         #
+#                                                                                     #
+###########################################|###########################################      
+      
+- platform: template
+  sensors:
+    current_power_usage:
+      value_template: "{{ ((states.sensor.borehole_power.state | float) + 
+                           (states.sensor.aircon_power.state | float) + 
+                           (states.sensor.pool_pump_power.state | float) + 
+                           (states.sensor.router_power.state | float) + 
+                           (states.sensor.main_geyser_power.state | float) + 
+                           (states.sensor.nuc_power.state | float) + 
+                           (states.sensor.stove_power.state | float) + 
+                           (states.sensor.dishwasher_power.state | float) + 
+                           (states.sensor.tumble_dryer_power.state | float) + 
+                           (states.sensor.fridge_power.state | float) + 
+                           (states.sensor.freezer_power.state | float) + 
+                           (states.sensor.washing_machine_power.state | float) + 
+                           (states.sensor.backup_geyser_power.state | float) + 
+                           (states.sensor.cottage_geyser_power.state | float) + 
+                           (states.sensor.pool_light_power.state | float) + 
+                           (states.sensor.nursery_pow_power.state | float) + 
+                           (states.sensor.back_light_power.state | float) + 
+                           (states.sensor.hueext_power.state | float) + 
+                           (states.sensor.bedroom_tv_power.state | float) + 
+                           (states.sensor.main_flood_light_power.state | float) + 
+                           (states.sensor.patio_flood_light_power.state | float)) | round(0) }}"
+      friendly_name: "Current Power Usage"
+      unit_of_measurement: "W"

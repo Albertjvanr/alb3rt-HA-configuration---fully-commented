@@ -1,0 +1,111 @@
+###########################################|###########################################
+#                                                                                     #
+#                                TV GLOBES ON WITH TV                                 #
+#                                                                                     #
+#             Turn the TV globes ON when the TV turns ON if the sun has set           #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533555603339'
+  alias: TV Globes ON with TV
+  trigger:
+  - entity_id: media_player.lounge_tv
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state: 'off'
+  action:
+  - data:
+      entity_id: switch.tv_globes_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                                TV GLOBES OFF WITH TV                                #
+#                                                                                     #
+#                     Turn the TV globes OFF when the TV turns OFF                    #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Only turn globes OFF if they are ON #
+#############################################
+
+- id: '1533555685863'
+  alias: TV Globes OFF with TV
+  trigger:
+  - entity_id: media_player.lounge_tv
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: switch.tv_globes_switch
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.tv_globes_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                                TV GLOBES ON AT NIGHT                                #
+#                                                                                     #
+#                    Turn the TV globes ON when it's gets dark                        #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Turn ON the globes if the TV is ON at night and the globes are OFF #
+# NOTE: This is for when the TV was ON during the day and the sun sets     #
+############################################################################
+
+- id: '1533131114595'
+  alias: TV Globes ON After Dark
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: media_player.lounge_tv
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'off'
+  - condition: state
+    entity_id: switch.tv_globes_switch
+    state: 'off'
+  action:
+  - data:
+      entity_id: switch.tv_globes_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                            TV GLOBES OFF DURING THE DAY                             #
+#                                                                                     #
+#                       Turn the TV globes OFF when it's day                          #
+#                                                                                     #
+###########################################|###################################################
+# NOTE: Turn OFF the globes if the TV is OFF during the day and the globes are ON             #
+# NOTE: This is for when the globes were ON and it becomes day and the globes were already ON #
+###############################################################################################
+
+# TV Globes OFF if TV Globes ON and sun rises #  
+- id: '1539056582270'
+  alias: TV Globes OFF After Sunrise
+  trigger:
+  - platform: time
+    minutes: /1
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'on'
+  - condition: state
+    entity_id: switch.tv_globes_switch
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.tv_globes_switch
+    service: switch.turn_off

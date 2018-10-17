@@ -1,0 +1,49 @@
+###########################################|###########################################
+#                                                                                     #
+#                                 ALL HOME LIGHTS GROUP                               #
+#                                                                                     #
+#          Created single light group to control all the lights in the house          #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: group
+  name: Home Lights
+  entities:
+    - light.lounge_1
+    - light.lounge_2
+    - light.lounge_3
+    - light.lounge_4
+    - light.lounge_5
+    - light.lounge_6
+    - light.lounge_7
+    - light.bedroom_1
+    - light.bedroom_2
+    - light.bedroom_3
+    - light.bedroom_4
+    - light.dining_room_1
+    - light.dining_room_2
+    - light.dining_room_3
+    - light.dining_room_4
+    - light.dining_room_5
+    - light.dining_room_6
+    - light.chloe_1
+    - light.chloe_2
+    - light.chloe_3
+    - light.chloe_4
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.kitchen_4  
+    - light.face_on_1
+    - light.face_on_2
+    - light.face_on_3
+    - light.main_bathroom_1
+    - light.main_bathroom_2
+    - light.main_bathroom_3
+    - light.hall_1
+    - light.hall_2
+    - light.hall_3
+    - light.guest_toilet_1
+    - light.guest_bathroom_1
+    - light.guest_bathroom_2
+    - light.guest_bathroom_3

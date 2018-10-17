@@ -1,0 +1,38 @@
+###########################################|###########################################
+#                                                                                     #
+#                                BAYESIAN IN BED CHECKER                              #
+#                                                                                     #
+#             Bayesian sensor to calculate whether we are both on bed                 #
+#                                                                                     #
+###########################################|###########################################                                                                              #########################################################
+# NOTE: Bayesian sensor calculating the probability that we are in bed based on: #
+#       1. That the sun has set                                                  #
+#       2. That the Xbox Plex client is not playing anything                     #
+#       3. That our phones are plugged in and charging                           #
+##################################################################################
+
+- platform: bayesian
+  name: In Bed Bayesian
+  prior: 0.25
+  probability_threshold: 0.95
+  observations:
+    - entity_id: 'input_boolean.sun_position_boolean'
+      prob_given_true: 0.5
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: 'binary_sensor.xbox_plex_playing'
+      prob_given_true: 0.3
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: 'binary_sensor.charging_albert_iphone'
+      prob_given_true: 0.3
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'on'
+    - entity_id: 'binary_sensor.charging_leanna_iphone'
+      prob_given_true: 0.3
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'on'

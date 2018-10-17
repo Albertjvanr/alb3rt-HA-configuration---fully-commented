@@ -1,0 +1,45 @@
+###########################################|###########################################
+#                                                                                     #
+#                                   DAY/NIGHT LIGHTS                                  #
+#                                                                                     #
+#                 Binary sensor to show if day/night lights are ON                    #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    back_light:
+      friendly_name: "Back Light"
+      device_class: power
+      value_template: "{{ is_state('switch.back_light_switch', 'on') }}"
+
+# Binary Sensor for Main Flood Light #
+- platform: template
+  sensors:
+    main_flood_light:
+      friendly_name: "Main Flood Light"
+      device_class: power
+      value_template: "{{ is_state('switch.main_flood_light_switch', 'on') }}"
+      
+# Binary Sensor for Patio Flood Light #
+- platform: template
+  sensors:
+    patio_flood_light:
+      friendly_name: "Patio Flood Light"
+      device_class: power
+      value_template: "{{ is_state('switch.patio_flood_light_switch', 'on') }}"
+
+# Binary Sensor for Outside Garage Lights #
+- platform: template
+  sensors:
+    outside_garage_lights:
+      friendly_name: "Outside Garage Lights"
+      device_class: power
+      value_template: "{{ is_state('switch.garage_outside_lights_switch', 'on') }}"
+
+- platform: template
+  sensors:
+    pool_light:
+      friendly_name: "Pool Light"
+      device_class: power
+      value_template: "{{ is_state('switch.pool_light_switch', 'on') }}"

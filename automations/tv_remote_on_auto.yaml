@@ -1,0 +1,20 @@
+###########################################|###########################################
+#                                                                                     #
+#                                     TV MANUAL ON                                    #
+#                                                                                     #
+#    Runs the script to turn the Xbox and soundbar ON if TV was turned ON manually    #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1538645581940'
+  alias: TV ON turns Xbox ON
+  trigger:
+  - entity_id: media_player.lounge_tv
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: script.turn_xbox_on
+    service: script.toggle

@@ -1,0 +1,14 @@
+###########################################|###########################################
+#                                                                                     #
+#                            MAIN BATHROOM EXTRACTOR FAN                              #
+#                                                                                     #
+#             Binary sensor to show if main bathroom extractor fan is ON              #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: template
+  sensors:
+    bathroom_extractor:
+      friendly_name: "Bathroom Extractor"
+      device_class: power
+      value_template: "{{ is_state('switch.bathroom_extractor_switch', 'on') }}"

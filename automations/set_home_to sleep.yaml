@@ -1,0 +1,37 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  SET HOME TO SLEEP                                  #
+#                                                                                     #
+#                     Set home to sleep when we are in bed                            #
+#                                                                                     #
+###########################################|##############################################################################################################################
+# NOTE: Set home to sleep mode if "in bed" is triggered via Baysian binary sensor, but only if "home_sleep_mode_boolean" is ON                                           #
+# NOTE: Sleep mode shuts OFF all lights, closes the garage door and turns OFF the Xbox, which indirectly turns OFF the TV and soundbar                                   #
+# NOTE: The delay is because when the Xbox is turned OFF manually, then the HelloHue plugin on the Plex server only sees this after a while and turns the lights back ON #
+##########################################################################################################################################################################
+
+- id: '1538469610382'
+  alias: Set Home to Sleep
+  trigger:
+  - entity_id: binary_sensor.in_bed_bayesian
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.home_sleep_mode_boolean
+    state:  'on'
+  action:
+  - data:
+      entity_id: light.home_lights
+    service: light.turn_off
+  - data:
+      entity_id: script.garage_door_close_trigger
+    service: script.toggle
+  - data:
+      entity_id: switch.xbox
+    service: switch.turn_off
+  - delay: 00:01:00
+  - data:
+      entity_id: light.home_lights
+    service: light.turn_off

@@ -1,0 +1,12 @@
+###########################################|###########################################
+#                                                                                     #
+#                                   WORKDAY SENSOR                                    #
+#                                                                                     #
+#               Sensor to monitor whether it's a workday in your contry               #
+#                                                                                     #
+###########################################|###########################################
+
+# Sensor to show if it's a work day #
+- platform: workday
+  name: Workday Sensor
+  country: ZA

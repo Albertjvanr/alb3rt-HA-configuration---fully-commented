@@ -1,0 +1,22 @@
+###########################################|###########################################
+#                                                                                     #
+#                                BACKUP GEYSER BOOLEAN                                #
+#                                                                                     #
+#                    Boolean to activate backup geyser automation                     #
+#                                                                                     #
+###########################################|###########################################
+
+backup_geyser_boolean:
+  name: Guests in Spare Bedroom
+
+###########################################|###########################################
+#                                                                                     #
+#                               COTTAGE GEYSER BOOLEAN                                #
+#                                                                                     #
+#                   Boolean to activate cottage geyser automation                     #
+#                                                                                     #
+###########################################|########################################### 
+
+cottage_geyser_boolean:
+  name: Guests in Cottage
+  initial: on

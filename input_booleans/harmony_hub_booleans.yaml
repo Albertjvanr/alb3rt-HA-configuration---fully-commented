@@ -1,0 +1,10 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  BEDROOM TV BOOLEAN                                 #
+#                                                                                     #
+#               Boolean to turn bedroom TV ON/OFF or show state if ON/OFF             #
+#                                                                                     #
+###########################################|###########################################
+
+bedroom_tv_boolean:
+  name: Bedroom TV Boolean

@@ -1,0 +1,106 @@
+###########################################|###########################################
+#                                                                                     #
+#                              GARAGE LIGHT ON DOOR OPEN                              #
+#                                                                                     #
+#       Turn the light inside the garage ON at night when the garage door opens       #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1533558737503'
+  alias: Garage Inside Lights ON
+  trigger:
+  - entity_id: sensor.garage_door_closed
+    from: 'ON'
+    platform: state
+    to: 'OFF'
+  condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
+  action:
+  - data:
+      entity_id: switch.garage_inside_light_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                              GARAGE LIGHT OFF DOOR CLOSE                            #
+#                                                                                     #
+#           Turn the light inside the garage OFF when the garage door closes          #
+#                                                                                     #
+###########################################|###########################################    
+
+- id: '1533559492817'
+  alias: Garage Inside Lights OFF
+  trigger:
+  - entity_id: sensor.garage_door_closed
+    from: 'OFF'
+    platform: state
+    to: 'ON'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.garage_inside_light_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                              GARAGE LIGHT ON AT NIGHT                               #
+#                                                                                     #
+#              Turn the light inside the garage ON and it is dark outside             #
+#                                                                                     #
+###########################################|################################################################
+# NOTE: For when the garage door is already open and the garage inside light is OFF and it is dark outside #
+############################################################################################################
+
+- id: '1535130324595'
+  alias: Garage Inside Lights ON After Dark
+  trigger:
+  - minutes: /1
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'off'
+  - condition: state
+    entity_id: switch.garage_inside_light_switch
+    state: 'off'
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'OFF'
+  action:
+  - data:
+      entity_id: switch.garage_inside_light_switch
+    service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                          GARAGE LIGHT OFF DURING THE DAY                            #
+#                                                                                     #
+#             Turn the light inside the garage OFF and it is light outside            #
+#                                                                                     #
+###########################################|##################################################################
+# NOTE: For when the garage door is already closed and the garage inside light is ON and it is light outside #
+##############################################################################################################
+
+- id: '1535039382270'
+  alias: Garage Inside Lights OFF After Sunrise
+  trigger:
+  - platform: time
+    minutes: /1
+    seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.sun_position_boolean
+    state:  'on'
+  - condition: state
+    entity_id: switch.garage_inside_light_switch
+    state: 'on'
+  - condition: state
+    entity_id: sensor.garage_door_closed
+    state: 'ON'
+  action:
+  - data:
+      entity_id: switch.garage_inside_light_switch
+    service: switch.turn_off

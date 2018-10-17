@@ -1,0 +1,112 @@
+###########################################|###########################################
+#                                                                                     #
+#                            GOOGLE HOME/ASSISTANT FILTER                             #
+#                                                                                     #
+#                Load component and filter entities for Google devices                #
+#                                                                                     #
+###########################################|###########################################
+
+google_actions:
+  filter:
+    include_entities:
+
+      - light.lounge
+      - light.bedroom
+      - light.nursery
+      - light.dining_room
+      - light.living_room_lights
+
+      - switch.pool_pump_switch
+
+      - switch.xbox
+      - switch.bedroom_tv_power
+      - switch.nursery_fairy_lights_switch
+
+      - cover.garage_door
+      
+###########################################|###########################################
+#                                                                                     #
+#                            GOOGLE HOME/ASSISTANT CONFIG                             #
+#                                                                                     #
+#                Configure Google allowed entities by creating aliases                #
+#                                                                                     #
+###########################################|###########################################
+
+  entity_config:
+
+    light.lounge:
+      name: Lounge Lights
+      aliases:
+        - lounge lights
+        - lights in the lounge
+        - the lounge lights
+        - tv lights
+        - the tv lights
+      room: Lounge
+
+    light.living_room_lights:
+      name: Living Room Lights
+      aliases:
+        - living room lights
+        - lights in the living room
+        - the lounge lights
+      
+    light.bedroom:
+      name: Bedroom Lights
+      aliases:
+        - bedroom lights
+        - lights in the bedroom
+        - the bedroom lights
+      room: Bedroom
+
+    light.nursery:
+      name: Nursery Lights
+      aliases:
+        - nursery lights
+        - lights in the nursery
+        - the nursery lights
+        - lights in chloe room
+        - chloe lights
+      room: Nursery
+
+    light.dining_room:
+      name: Dining Room  Lights
+      aliases:
+        - dining room lights
+        - lights in the dining room
+        - the dining room lights
+      room: Dining Room
+
+    switch.pool_pump_switch:
+      name: Pool Pump
+      aliases:
+        - pool pump
+        - the pool pump
+      room: Outside & Garden
+        
+    switch.xbox:
+      name: Xbox
+      aliases:
+        - xbox
+        - the xbox
+        - the tv
+        - tv
+
+    switch.bedroom_tv_power:
+      name: Bedroom TV
+      aliases:
+        - bedroom tv
+        - the bedroom tv
+        
+    cover.garage_door:
+      name: Garage Door
+      aliases:
+        - the garage door
+        - garage door
+        
+    switch.nursery_fairy_lights_switch:
+      name: Fairy Lights
+      aliases:
+        - chloe fairy lights
+        - nursery fairy lights
+        - fairy lights

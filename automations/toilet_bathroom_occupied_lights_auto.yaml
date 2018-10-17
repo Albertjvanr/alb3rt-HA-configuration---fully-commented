@@ -1,0 +1,91 @@
+###########################################|###########################################
+#                                                                                     #
+#                            GUEST TOILET OCCUPIED LIGHT ON                           #
+#                                                                                     #
+#         Turn light outside guest toilet warm white when toilet is occupied          #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1539722463232'
+  alias: Guest Toilet Occupied
+  trigger:
+  - entity_id: light.guest_toilet
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: sensor.guest_toilet_motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: scene.guest_toilet_occupied
+    service: scene.turn_on
+
+###########################################|###########################################
+#                                                                                     #
+#                           GUEST TOILET OCCUPIED LIGHT OFF                           #
+#                                                                                     #
+#          Turn light outside guest toilet OFF when toilet is not occupied            #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1539111464432'
+  alias: Guest Toilet Not Occupied
+  trigger:
+  - entity_id: light.guest_toilet
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: light.hall_1
+    service: light.turn_off
+ 
+###########################################|###########################################
+#                                                                                     #
+#                          GUEST BATHROOM OCCUPIED LIGHT ON                           #
+#                                                                                     #
+#       Turn light outside guest bathroom warm white when bathroom is occupied        #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1539444461932'
+  alias: Guest Bathroom Occupied
+  trigger:
+  - entity_id: light.guest_bathroom
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: sensor.guest_bathroom_motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: scene.guest_bathroom_occupied
+    service: scene.turn_on
+
+###########################################|###########################################
+#                                                                                     #
+#                         GUEST BATHROOM OCCUPIED LIGHT OFF                           #
+#                                                                                     #
+#        Turn light outside guest bathroom OFF when bathroom is not occupied          #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1539222411432'
+  alias: Guest Bathroom Not Occupied
+  trigger:
+  - entity_id: light.guest_bathroom
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: light.hall_3
+    service: light.turn_off  

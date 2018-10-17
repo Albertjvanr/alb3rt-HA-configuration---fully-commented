@@ -1,0 +1,18 @@
+###########################################|###########################################
+#                                                                                     #
+#                                SOUNDBAR VOLUME CONTROL                              #
+#                                                                                     #
+#                    Soundbar volume control via input slider                         #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1532225445558'
+  alias: Adjust Soundbar Volume Slider
+  trigger:
+    platform: state
+    entity_id: input_number.soundbar_volume
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.soundbar_google_cast
+        volume_level: '{{ states.input_number.soundbar_volume.state | multiply(0.01) }}'

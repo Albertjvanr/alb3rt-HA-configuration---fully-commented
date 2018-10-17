@@ -1,0 +1,17 @@
+###########################################|###########################################
+#                                                                                     #
+#                                    HOMEKIT START                                    #
+#                                                                                     #
+#            Start Homekit after HA start, with delay as per documentation            #
+#                                                                                     #
+###########################################|###########################################
+
+## Start Homekit after HASSIO restarts ##
+- id: '1534714148621'
+  alias: 'Start HomeKit'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: 00:02
+    - service: homekit.start

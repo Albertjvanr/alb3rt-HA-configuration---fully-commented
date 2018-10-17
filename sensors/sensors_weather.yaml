@@ -1,0 +1,46 @@
+###########################################|###########################################
+#                                                                                     #
+#                                DARKSKY WEATHER SENSORS                              #
+#                                                                                     #
+#                  Sensor to show selected Darksky weather conditions                 #
+#                                                                                     #
+###########################################|###########################################
+
+# Darksky Weather Sensors
+- platform: darksky
+  api_key: !secret dark_sky_api
+  forecast:
+    - 1
+  monitored_conditions:
+    - daily_summary
+    - temperature
+    - temperature_low
+    - temperature_high
+    - wind_speed
+    - wind_bearing
+    - uv_index
+    - precip_probability
+  units: si
+  update_interval:
+    minutes: 5
+
+###########################################|###########################################
+#                                                                                     #
+#                                   SEASON SENSOR                                     #
+#                                                                                     #
+#                              Sensor to show the season                              #
+#                                                                                     #
+###########################################|###########################################
+    
+- platform: season
+
+###########################################|###########################################
+#                                                                                     #
+#                                  MOON PHASE SENSOR                                  #
+#                                                                                     #
+#                            Sensor to show the moon phase                            #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: moon
+  

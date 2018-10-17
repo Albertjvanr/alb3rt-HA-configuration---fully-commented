@@ -1,0 +1,43 @@
+###########################################|###########################################
+#                                                                                     #
+#                              HOME ANNOUNCEMENTS SUNSET                              #
+#                                                                                     #
+#              Home aanouncements when sun sets over Google Home speakers             #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: First increase the volume levels of the speakers, then make the announcements, then turn the volume levels down again #
+# NOTE: The delay allows the announcement to finish before reducing the volumea again                                         #
+###############################################################################################################################
+
+- id: '1533398801261'
+  alias: Sunset Announcements
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.living_room_home_google_cast
+      volume_level: 0.7
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.bedroom_home_google_cast
+      volume_level: 0.7
+  - data_template:
+      message: "Hey big guy. Sun's getting real low. Minimum temperature tonight is {{states('sensor.dark_sky_overnight_low_temperature')}}."
+    service: tts.google_say
+    entity_id: media_player.living_room_home_google_cast
+  - data_template:
+      message: "Hey big guy. Sun's getting real low. Minimum temperature tonight is {{states('sensor.dark_sky_overnight_low_temperature')}}."
+    service: tts.google_say
+    entity_id: media_player.bedroom_home_google_cast
+  - delay: 00:00:15
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.living_room_home_google_cast
+      volume_level: 0.25
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.bedroom_home_google_cast
+      volume_level: 0.25

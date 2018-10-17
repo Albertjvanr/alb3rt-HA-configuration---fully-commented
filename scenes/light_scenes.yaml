@@ -1,0 +1,35 @@
+###########################################|###########################################
+#                                                                                     #
+#                           GUEST TOILET OCCUPIED LIGHT SCENES                        #
+#                                                                                     #
+#         Scene used to set the light colour outside the toilet when occupied         #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: 2000K is warm white, 6500K is cool white on the Philips Hue globes #
+############################################################################
+
+- name: Guest Toilet Occupied
+  entities:
+    light.hall_1:
+      state: on
+      transition: 2
+      kelvin: 2000
+      brightness_pct: 100
+      
+###########################################|###########################################
+#                                                                                     #
+#                         GUEST BATHROOM OCCUPIED LIGHT SCENES                        #
+#                                                                                     #
+#       Scene used to set the light colour outside the bathroom when occupied         #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: 2000K is warm white, 6500K is cool white on the Philips Hue globes #
+############################################################################
+
+- name: Guest Bathroom Occupied
+  entities:
+    light.hall_3:
+      state: on
+      transition: 2
+      kelvin: 2000
+      brightness_pct: 100

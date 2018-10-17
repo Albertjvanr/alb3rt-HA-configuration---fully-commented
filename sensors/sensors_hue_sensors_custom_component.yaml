@@ -1,0 +1,81 @@
+###########################################|###########################################
+#                                                                                     #
+#                             HUE CUSTOM ATTRIBUTE SENSORS                            #
+#                                                                                     #
+#   Setup of custom Hue component and sensors to show Motion, Temperature and Lux     #
+#                                                                                     #
+###########################################|###########################################
+
+# Hue Motion Sensors Attributes - Motion #
+- platform: hue
+  ip_address: 192.168.1.69
+  token: !secret hue_api_username
+  
+# Hue Motion Sensors Attributes - Temperature #
+- platform: template
+  sensors:
+  
+    face_on_motion_sensor_temperature:
+      friendly_name: 'Face On Hue Temp'
+      value_template: '{{states.sensor.face_on_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+      
+    guest_bathroom_motion_sensor_temperature:
+      friendly_name: 'Guest Bathroom Hue Temp'
+      value_template: '{{states.sensor.guest_bathroom_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+      
+    guest_toilet_motion_sensor_temperature:
+      friendly_name: 'Guest Toilet Hue Temp'
+      value_template: '{{states.sensor.guest_toilet_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+      
+    hall_motion_sensor_temperature:
+      friendly_name: 'Hall Hue Temp'
+      value_template: '{{states.sensor.hall_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+      
+    kitchen_motion_sensor_temperature:
+      friendly_name: 'Kitchen Hue Temp'
+      value_template: '{{states.sensor.kitchen_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+      
+    main_bathroom_motion_sensor_temperature:
+      friendly_name: 'Main Bathroom Hue Temp'
+      value_template: '{{states.sensor.main_bathroom_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+    
+# Hue Motion Sensors Attributes - Lux #
+- platform: template
+  sensors:
+  
+    face_on_motion_sensor_lux:
+      friendly_name: 'Face On Hue Lux'
+      value_template: '{{states.sensor.face_on_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+      
+    guest_bathroom_motion_sensor_lux:
+      friendly_name: 'Guest Bathroom Hue Lux'
+      value_template: '{{states.sensor.guest_bathroom_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+      
+    guest_toilet_motion_sensor_lux:
+      friendly_name: 'Guest Toilet Hue Lux'
+      value_template: '{{states.sensor.guest_toilet_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+      
+    hall_motion_sensor_lux:
+      friendly_name: 'Hall Hue Lux'
+      value_template: '{{states.sensor.hall_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+      
+    kitchen_motion_sensor_lux:
+      friendly_name: 'Kitchen Hue Lux'
+      value_template: '{{states.sensor.kitchen_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+      
+    main_bathroom_motion_sensor_lux:
+      friendly_name: 'Main Bathroom Hue Lux'
+      value_template: '{{states.sensor.main_bathroom_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lux
+    

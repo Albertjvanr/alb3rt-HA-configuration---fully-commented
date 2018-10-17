@@ -1,0 +1,39 @@
+###########################################|###########################################
+#                                                                                     #
+#                              MAIN BATHROOM HUMIDITY OFF                             #
+#                                                                                     #
+#              Turn OFF main bathroom extractor fan when humidity drops               #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1530385250217'
+  alias: Bathroom Min Humidity
+  trigger:
+  - below: '80'
+    entity_id: sensor.bathroom_humidity
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.bathroom_extractor_switch
+    service: switch.turn_off
+
+###########################################|###########################################
+#                                                                                     #
+#                              MAIN BATHROOM HUMIDITY ON                              #
+#                                                                                     #
+#            Turn ON main bathroom extractor fan when humidity increases              #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1530385336490'
+  alias: Bathroom Max Humidity
+  trigger:
+  - above: '80'
+    entity_id: sensor.bathroom_humidity
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.bathroom_extractor_switch
+    service: switch.turn_on

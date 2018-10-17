@@ -1,0 +1,47 @@
+###########################################|###########################################
+#                                                                                     #
+#                                     XBOX ON/OFF                                     #
+#                                                                                     #
+#     Toggle between "script.watch_lounge_tv_on" and "script.watch_lounge_tv_off"     #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Toggle scripts which controls the lounge TV, soundbar and Xbox #
+########################################################################
+
+- platform: template
+  switches: 
+    xbox:
+      friendly_name: "Xbox Power"
+      value_template: "{{ is_state('media_player.lounge_tv', 'on') }}"
+      turn_on:
+        service: script.watch_lounge_tv_on
+        data:
+          entity_id: script.watch_lounge_tv_on
+      turn_off:
+        service: script.watch_lounge_tv_off
+        data:
+          entity_id: script.watch_lounge_tv_off
+
+###########################################|###########################################
+#                                                                                     #
+#                                  BEDROOM TV ON/OFF                                  #
+#                                                                                     #
+#    Toggle between "script.watch_bedroom_tv_on" and "script.watch_bedroom_tv_off"    #
+#                                                                                     #
+###########################################|###########################################
+# NOTE: Toggle scripts which controls the bedroom TV and Bedroom Apple TV #
+###########################################################################
+          
+- platform: template
+  switches: 
+    bedroom_tv_power:
+      friendly_name: "Bedroom TV"
+      value_template: "{{ states('input_boolean.bedroom_tv_boolean') }}"
+      turn_on:
+        service: script.watch_bedroom_tv_on
+        data:
+          entity_id: script.watch_bedroom_tv_on
+      turn_off:
+        service: script.watch_bedroom_tv_off
+        data:
+          entity_id: script.watch_bedroom_tv_off

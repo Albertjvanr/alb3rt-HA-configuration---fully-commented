@@ -1,0 +1,20 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  ISP FIBRE SPEED TEST                               #
+#                                                                                     #
+#          Sensor to measure my fibre upload, download and ping periodically          #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: speedtest
+  minute:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 0
+  monitored_conditions:
+    - ping
+    - download
+    - upload  
