@@ -53,7 +53,7 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
   * **Lights and motion**
     - Philip Hue Bridge
     - Philips Hue Motion Sensor x 6
-    - Philips Hue Colour U10 x 21
+    - Philips Hue Colour GU10 x 21
     - Philips Hue White Ambiance U10 x 17
     - Philips Hue Dimmer Switch
   * **Presence detection**
