@@ -90,11 +90,11 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
 
 ## Non-HA Automations
 	
-  * Philips Hue light in motion areas are directly controlled by the Hue Montion sensors
+  * Philips Hue light in motion areas are directly controlled by the Hue Motion sensors
 
 ## My Home Assistant dashboard
 
-I switches over to Lovelace and don't use the default UI anymore. Screenshots of my UI below:
+I switched over to Lovelace and don't use the default UI anymore. Screenshots of my UI below:
 
 <img src="https://github.com/Albertjvanr/alb3rt-HA-configuration---fully-commented/blob/master/view_home.png" alt="Home Assistant dashboard" />
 
