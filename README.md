@@ -68,6 +68,7 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
 
 ## Control and Automations
 	
+  * HASSIO latest version sensor (compares current and latest versions)	
   * Bedroom TV control (ON/OFF)
   * Arriving home automations
   * Day/night light automations
@@ -87,6 +88,8 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
   * TV monitoring when turned ON/OFF manually
   * Update of iCloud device statuses every 1 minute when home (used in other automations)
   * Xbox volume control
+  * Turn geysers OFF when stove is using power (to limit current home power consumption)
+  * When one geyser uses power, turn OFF the other geysers (to limit current home power consumption)
 
 ## Non-HA Automations
 	
