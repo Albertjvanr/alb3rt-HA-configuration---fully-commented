@@ -24,38 +24,38 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
 ## Devices used with HA
 	
   * **Network**
-    - Netgear R7800 Nighthawk
-    - Ubiquiti LR AP controlled with Unifi Controller set up on different HA instance
+    - [Netgear R7800 Nighthawk X4S AC2600] (http://a.co/d/5OqR3Ms)
+    - [Ubiquiti UAP-LR AP] (http://a.co/d/4sCwuTp) controlled with Unifi Controller set up on different HA instance
     - Pi-hole set up on different HA instance
-    - Netgear WN2500RP Wireless Extender
+    - [Netgear WN2500RP Wireless Extender] (http://a.co/d/52VTbSx)
   * **Voice Interaction**
-    - Google Home Mini x 2
+    - [Google Home Mini] (https://www.walmart.com/ip/Google-Home-Mini-Chalk-2-Pack/599120369) x 2
     - Google TTS
   * **Media and sound**
     - Plex running on local server desktop (Intel(R) Core(TM) i7-8700 CPU @ 3.20Ghz 8 BG DDR4 RAM Samsung SSD 850 EVO 250 GB (WIN 10) 20 TB (5 Seagate 4 TB SkyHawk 3.5” HDD) 
     - **Lounge**:
-      - Xbox One (HDMI output to soundbar)
-      - Samsung TV - UA60JU6400 (HDMI input from soundbar)
-      - LG Soundbar (SJ9) (HDMI input from Xbox One, HDMI output to Samsung TV)
-      - Apple TV 3 (HDMI output to Xbox One)
+      - [Xbox One] (http://a.co/d/j3hOXwk) (HDMI output to soundbar)
+      - [Samsung TV - UA60JU6400] (https://www.samsung.com/africa_en/tvs/uhd-ju6400/UA60JU6400KXXA/) (HDMI input from soundbar)
+      - [LG Soundbar SJ9] (http://a.co/d/6yMQZkd) (HDMI input from Xbox One, HDMI output to Samsung TV)
+      - [Apple TV 3] (https://support.apple.com/kb/SP648?locale=en_US) (HDMI output to Xbox One)
     - **Bedroom**:
-      - Apple TV 4 (HDMI output to Sansui TV, bluetooth output to JBL Extreme speaker)
-      - Sansui TV - STY1232 (HDMI input from Apple TV 4) - Non-smart TV (had to find alternative ways to control and monitor)
-      - JBL Extreme (bluetooth sound from Apple TV)
-  * **Switches (power and lights) and energy monitoring**
-    - Sonoff POW x 21
-    - Sonoff Basic x 4
-    - Sonoff TH16 with Temperature and Humidity Sensor x 2
-    - Sonoff SV with reed switch x 1
-    - Sonoff Touch UK1 x 1
+      - [Apple TV 4] (https://support.apple.com/en-za/HT207936) (HDMI output to Sansui TV, bluetooth output to JBL Extreme speaker)
+      - [Sansui TV STY1232] (https://www.bradlows.co.za/sansui-32in-81cm-led-tv-sty0632) (HDMI input from Apple TV 4) - Non-smart TV (had to find alternative ways to control and monitor)
+      - [JBL Extreme] (http://a.co/d/gkN13MM) (bluetooth sound from Apple TV)
+  * **Switches (power and lights) and energy monitoring (all Sonoffs are flashed with Tasmota firmware) (https://github.com/arendst/Sonoff-Tasmota)**
+    - [Sonoff POW] (http://a.co/d/9RN6YRc) x 21
+    - [Sonoff Basic] (http://a.co/d/2CjNuC3) x 4
+    - [Sonoff TH16 with Temperature and Humidity Sensor] (http://a.co/d/0iX6ZQ6) x 2
+    - [Sonoff SV with reed switch] (http://a.co/d/5tVlqeX) x 1
+    - [Sonoff Touch US1] (http://a.co/d/2HTQjRI) x 1
   * **IR control**
-    - Harmony Hub with additional IR transmitter
+    - [Harmony Hub with additional IR transmitter] (http://a.co/d/iR1lRTu - http://a.co/d/abvFSP4)
   * **Lights and motion**
-    - Philip Hue Bridge
-    - Philips Hue Motion Sensor x 6
-    - Philips Hue Colour GU10 x 21
-    - Philips Hue White Ambiance U10 x 17
-    - Philips Hue Dimmer Switch
+    - [Philip Hue Bridge] (http://a.co/d/ilgeKVX)
+    - [Philips Hue Motion Sensor] (http://a.co/d/71q3MCT) x 6
+    - [Philips Hue Colour GU10] (http://a.co/d/2uo5FRV) x 21
+    - [Philips Hue White Ambiance GU10] (http://a.co/d/2GPoJGa) x 17
+    - [Philips Hue Dimmer Switch] (http://a.co/d/5SZ3rIa)
   * **Presence detection**
     - Netgear Device Tracker
     - Google Maps
@@ -87,10 +87,14 @@ I try to keep my repo updated as I change or add to my HA environment. I'm curre
   * TV monitoring when turned ON/OFF manually
   * Update of iCloud device statuses every 1 minute when home (used in other automations)
   * Xbox volume control
+
+## Non-HA Automations
 	
+  * Philips Hue light in motion areas are directly controlled by the Hue Motion sensors
+
 ## My Home Assistant dashboard
 
-I switches over to Lovelace and don't use the default UI anymore. Screenshots of my UI below:
+I switched over to Lovelace and don't use the default UI anymore. Screenshots of my UI below:
 
 <img src="https://github.com/Albertjvanr/alb3rt-HA-configuration---fully-commented/blob/master/view_home.png" alt="Home Assistant dashboard" />
 
