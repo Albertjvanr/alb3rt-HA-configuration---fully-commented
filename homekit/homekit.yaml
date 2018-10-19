@@ -16,7 +16,7 @@ filter:
     - light.lounge
     - light.dining_room
     - light.nursery
-    - light.living_room_lights
+    - light.living_room
     - light.home_lights
     - light.bedroom
     - cover.garage_door
@@ -50,7 +50,7 @@ entity_config:
   light.nursery:
     name: Nursery Lights    
    
-  light.living_room_lights:
+  light.living_room:
     name: Living Room Lights   
    
   light.home_lights:

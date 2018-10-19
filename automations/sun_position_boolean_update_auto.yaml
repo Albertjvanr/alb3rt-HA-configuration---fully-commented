@@ -2,7 +2,7 @@
 #                                                                                     #
 #                                    Sun Boolean ON                                   #
 #                                                                                     #
-#                           Turn boolean ON when sun rises                            #
+#                           Turn boolean ON when it is day                            #
 #                                                                                     #
 ###########################################|####################################################
 # NOTE: For use in trigger when sunrise and sunset is not the trigger, but rather sun position #
@@ -11,9 +11,13 @@
 - id: '1536218780002'
   alias: Sunrise Boolean Update
   trigger:
-  - event: sunrise
-    platform: sun
-  condition: []
+  - minutes: /2
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'above_horizon'
   action:
   - data:
       entity_id: input_boolean.sun_position_boolean
@@ -23,18 +27,22 @@
 #                                                                                     #
 #                                   Sun Boolean OFF                                   #
 #                                                                                     #
-#                          Turn boolean OFF when sun rises                            #
+#                         Turn boolean OFF when it is night                           #
 #                                                                                     #
 ###########################################|####################################################
-# NOTE: For use in trigger when sunrise and sunset is not the trigger, but rather sun position #
+# NOTE: For use in trigger where sunrise and sunset is not the trigger, but rather sun position #
 ################################################################################################
 
 - id: '1536218805164'
   alias: Sunset Boolean Update
   trigger:
-  - event: sunset
-    platform: sun
-  condition: []
+  - minutes: /2
+    seconds: 0  
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
   action:
   - data:
       entity_id: input_boolean.sun_position_boolean

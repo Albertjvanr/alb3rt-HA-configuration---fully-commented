@@ -1,0 +1,26 @@
+###########################################|###########################################
+#                                                                                     #
+#                                STOVE ON GEYSERS OFF                                 #
+#                                                                                     #
+#                   Turn the geysers OFF when the stove uses power                    #
+#                                                                                     #
+###########################################|###########################################
+
+- id: '1531125459878'
+  alias: Stove ON Geysers OFF
+  trigger:
+  - above: '1000'
+    entity_id: sensor.stove_power
+    platform: numeric_state
+  action:
+  - data:
+      entity_id: switch.main_geyser_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_off
+        
+        

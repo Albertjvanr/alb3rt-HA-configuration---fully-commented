@@ -1,0 +1,47 @@
+###########################################|###########################################
+#                                                                                     #
+#                                  CURRENT HA VERSION                                 #
+#                                                                                     #
+#                        Creates sensor for current HA version                        #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: version
+
+###########################################|###########################################
+#                                                                                     #
+#                                   LATEST HA VERSION                                 #
+#                                                                                     #
+#                         Creates sensor for latest HA version                        #
+#                                                                                     #
+###########################################|###########################################
+
+- platform: rest
+  resource: https://s3.amazonaws.com/hassio-version/stable.json
+  name: HA Latest Version
+  value_template: '{{ value_json["homeassistant"]["raspberrypi3"] }}'
+  
+###########################################|###########################################
+#                                                                                     #
+#                            HASSIO NEW VERSION NOTIFICATION                          #
+#                                                                                     #
+#           Creates sensor to notify when a new HASSIO version is available           #
+#                                                                                     #
+###########################################|###########################################
+  
+- platform: template
+  sensors:
+    ha_update_available:
+      friendly_name: 'HA Version Latest'
+      value_template: >-
+        {%- if states.sensor.ha_latest_version.state != "unavailable" and states.sensor.ha_latest_version.state != states.sensor.current_version.state -%}
+           No
+        {%- else -%}
+           Yes
+        {%- endif -%}
+      icon_template: >-
+        {%- if states.sensor.ha_latest_version.state != "unavailable" and states.sensor.ha_latest_version.state != states.sensor.current_version.state -%}
+          mdi:alert-decagram
+        {% else %}
+          mdi:check
+        {% endif %}

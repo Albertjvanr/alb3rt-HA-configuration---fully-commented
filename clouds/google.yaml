@@ -14,7 +14,7 @@ google_actions:
       - light.bedroom
       - light.nursery
       - light.dining_room
-      - light.living_room_lights
+      - light.living_room
 
       - switch.pool_pump_switch
 
@@ -44,7 +44,7 @@ google_actions:
         - the tv lights
       room: Lounge
 
-    light.living_room_lights:
+    light.living_room:
       name: Living Room Lights
       aliases:
         - living room lights

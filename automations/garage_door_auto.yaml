@@ -127,9 +127,10 @@
 #                                                                                     #
 #     Open the garage door when we get out of bed if someone is home on work days     #
 #                                                                                     #
-###########################################|######################################################################
-# NOTE: "script.garage_door_open_trigger" will only trigger if the garage door is closed (see script for details #
-##################################################################################################################
+###########################################|###################################################################################################################
+# NOTE: "script.garage_door_open_trigger" will only trigger if the garage door is closed (see script for details                                              #
+# NOTE: Only between 4AM and 8AM, otherwise the garage door opens at night when we unplug our phones (so then the "in-bed" bayesian sensor thinks we woke up) #
+###############################################################################################################################################################
 
 - id: '1538733826089'
   alias: Garage Open on Workday Mornings
@@ -144,6 +145,9 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
+      - condition: time
+        after: '04:00:00'       
+        before: '08:00:00'
       - condition: or
         conditions:
           - condition: state

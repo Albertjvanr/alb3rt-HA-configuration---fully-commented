@@ -91,15 +91,22 @@
     minutes: /1
     seconds: 0
   condition:
-  - condition: state
-    entity_id: input_boolean.sun_position_boolean
-    state:  'on'
-  - condition: state
-    entity_id: switch.garage_inside_light_switch
-    state: 'on'
-  - condition: state
-    entity_id: sensor.garage_door_closed
-    state: 'ON'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.sun_position_boolean
+        state: 'on'
+      - condition: state
+        entity_id: switch.garage_inside_light_switch
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: sensor.garage_door_closed
+            state: 'ON'
+          - condition: state
+            entity_id: sensor.garage_door_closed
+            state: 'OFF'       
   action:
   - data:
       entity_id: switch.garage_inside_light_switch

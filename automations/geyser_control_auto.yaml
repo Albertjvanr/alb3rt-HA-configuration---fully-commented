@@ -320,3 +320,78 @@
   - data:
       entity_id: switch.cottage_geyser_switch
     service: switch.turn_on
+    
+###########################################|###########################################
+#                                                                                     #
+#                        MAIN GEYSER ON -  OTHER GEYSERS OFF                          #
+#                                                                                     #
+#       Turn the backup and cottage geyser OFF if the main geyser uses power          #
+#                                                                                     #
+###########################################|#######################################################################
+# NOTE: This is to ensure that the geyser don't draw power at the same time to limit the house total power demand #
+###################################################################################################################
+
+- id: '1531192371006'
+  alias: Main Geyser ON Other Geysers OFF
+  trigger:
+  - above: '2000'
+    entity_id: sensor.main_geyser_power
+    platform: numeric_state  
+  condition: []
+  action:
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                      BACKUP GEYSER ON -  OTHER GEYSERS OFF                          #
+#                                                                                     #
+#       Turn the main and cottage geyser OFF if the backup geyser uses power          #
+#                                                                                     #
+###########################################|#######################################################################
+# NOTE: This is to ensure that the geyser don't draw power at the same time to limit the house total power demand #
+###################################################################################################################
+
+- id: '1534492339006'
+  alias: Backup Geyser ON Other Geysers OFF
+  trigger:
+  - above: '2000'
+    entity_id: sensor.backup_geyser_power
+    platform: numeric_state  
+  condition: []
+  action:
+  - data:
+      entity_id: switch.main_geyser_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.cottage_geyser_switch
+    service: switch.turn_off
+    
+###########################################|###########################################
+#                                                                                     #
+#                     COTTAGE GEYSER ON -  OTHER GEYSERS OFF                          #
+#                                                                                     #
+#       Turn the main and backup geyser OFF if the cottage geyser uses power          #
+#                                                                                     #
+###########################################|#######################################################################
+# NOTE: This is to ensure that the geyser don't draw power at the same time to limit the house total power demand #
+###################################################################################################################
+
+- id: '1556444439126'
+  alias: Cottage Geyser ON Other Geysers OFF
+  trigger:
+  - above: '2000'
+    entity_id: sensor.cottage_geyser_power
+    platform: numeric_state  
+  condition: []
+  action:
+  - data:
+      entity_id: switch.main_geyser_switch
+    service: switch.turn_off
+  - data:
+      entity_id: switch.backup_geyser_switch
+    service: switch.turn_off
