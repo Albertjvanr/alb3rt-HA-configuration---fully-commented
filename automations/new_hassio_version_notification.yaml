@@ -1,0 +1,24 @@
+###########################################|###########################################
+#                                                                                     #
+#                            NEW HASSIO VERSION NOTIFICATION                          #
+#                                                                                     #
+#          Notify Albert on iOS app when new version of HASSIO is available           #
+#                                                                                     #
+###########################################|###########################################################################
+# NOTE: The delay is because the json used to get the latest version shows a new version before it shows up on HASSIO #
+#######################################################################################################################
+
+- id: '1537752513920'
+  alias: New HASSIO version available
+  trigger:
+  - entity_id: sensor.ha_update_available
+    from: 'No'
+    platform: state
+    to: 'Yes'
+  condition: []
+  action:
+  - delay: 03:00:00
+  - data:
+      message: New HASSIO version available
+      title: HASSIO Update
+    service: notify.ios_albert_iphone
